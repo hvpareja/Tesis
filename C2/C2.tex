@@ -1,0 +1,293 @@
+% Activate the following line by filling in the right side. If for example the name of the root file is Main.tex, write
+% "...root = Main.tex" if the chapter file is in the same directory, and "...root = ../Main.tex" if the chapter is in a subdirectory.
+
+%!TEX root =  ../Tesis.tex
+\chapter[Dinámica evolutiva de citocromo b y COX 1]{Citocromo b y COX 1 presentan una dinámica evolutiva diferencial condicionada por la estabilidad termodinámica}\label{cap:surfbur}
+
+\section{Resumen}
+Combinando información evolutiva y estructural de 231 especies de mamíferos, hemos abordado la influencia de determinantes estructurales sobre la tasa evolutiva de citocromo b y COX 1, dos proteínas codificadas por el genoma mitocondrial. Los residuos del interior, no expuestos al solvente, de citocromo b, en contraste con los de COX 1, exhiben una notable tolerancia a los cambios. Esta mayor capacidad evolutiva\footnote{Entiéndase \textit{capacidad evolutiva} o \textit{evolvabilidad} como la predisposición de un gen a experimentar cambios en su secuencia a lo largo de la evolución. Es una traducción adaptada del término en inglés <<\textit{evolvability}>>} de citocromo b contrasta con la menor tasa de sustituciones sinónimas de su gen, en comparación con el de COX 1, sugiriendo que este último está sujeto a una fuerte selección purificadora. En este trabajo presentaremos resultados que apuntan a que el efecto sobre la estabilidad de las mutaciones (${\Delta}{\Delta}G$), podría ser la causa del comportamiento evolutivo diferencial de estas dos proteínas mitocondriales.
+
+\section{Introducción}
+Las mitocondrias, además de desempeñar un papel central en la fosforilación oxidativa (OXPHOS), están involucradas en diversos procesos celulares tales como crecimiento y proliferación \cite{BIES:BIES20063}, apostosis \cite{Navarro:2007ud} y envejecimiento \cite{Aledo:2010di}. No resulta sorprendente, pues, que alteraciones en la biología mitocondrial hayan sido relacionadas con numerosas enfermedades \cite{Scharfe:2009}. Estas alteraciones pueden venir provocadas por mutaciones en el genoma mitocondrial (mtDNA) o en genes nucleares (nDNA) que codifican para proteínas mitocondriales \cite{diMauro:2008,HUMU:HUMU20338}. Como hemos visto en la introducción general, el genoma mitocondrial de mamíferos codifica tan sólo para 13 proteínas de OXPHOS (figura \ref{FigOXPHOS}), mientras que el grueso de proteínas mitocondriales están codificadas por genes nucleares. Sin duda, la evolución del mtDNA presenta numerosas particularidades cuando la comparamos con la evolución del nDNA. A ello contribuyen las características propias del genoma mitocondrial que destacamos con anterioridad.
+
+El hecho de que, en vertebrados, el genoma mitocondrial cambia más rápidamente que el genoma nuclear, parece estar, actualmente, fuera de discusión. Sin embargo, este hallazgo supuso una gran sorpresa \cite{Brown:1979ve}, dado que parecía desafiar la idea bien asentada de que cuanto más importante es la función de una proteína, menor es el ritmo al que cambia su estructura primaria \cite{Zhang01042005}.  Desde entonces, la identificación de los factores que determinan el ritmo al que una proteína evoluciona, ha atraído una considerable atención. 
+
+Trabajos recientes sugieren que todos los eventos que influyen sobre la expresión de una proteína, tales como la transcripción, \textit{splicing} y traducción, poseen una profunda influencia sobre la velocidad a la éstas evolucionan \cite{Pal:2006iy,Warnecke:2009fk}. Así, pues, se acepta que el nivel de expresión de un gen es uno de los principales determinantes de la velocidad a la que evoluciona su correspondiente proteína \cite{Nabholz:2013gr}. Sin embargo, cuando analizamos el ritmo al que evolucionan los distintos residuos de una misma proteína, hemos de desplazar el foco de atención hacia aspectos estructurales y/o funcionales. En este sentido,  las propiedades funcionales de una proteína, incluyendo interacciones con otras proteínas y modificaciones postraduccionales, están todas relacionadas con las propiedades de la superficie de dicha proteína. Sin embargo, la habilidad de la molécula para plegarse correctamente y la estabilidad termodinámica de dicha conformación, la cual en última instancia determina la función, están fuertemente influenciadas por las características del interior de la proteína \cite{Eilers:2000iw,Mirny:2001dr}. No es de extrañar, pues, que el grado de exposición al solvente de un residuo, sea una de las propiedades estructurales que ha recibido particular atención como posible determinante de la evolución proteica.
+
+Estudios realizados en levaduras \cite{Conant:2009ef,Franzosa:2009by,Lin:2007il}  y bacterias \cite{Bustamante:2000vw}, apoyan la visión de que los residuos enterrados en el núcleo de la proteína, son más refractarios a los cambios evolutivos cuando se comparan con su contrapartida de residuos expuestos en la superficie. Ante estas observaciones, uno podría sentirse tentado a especular que aquellas proteínas con una menor proporción de residuos expuestos deberían evolucionar lentamente. Aunque tal razonamiento ha recibido apoyo de parte de algunos autores \cite{Lin:2007il}, otros han documentado observaciones opuestas. Esto es, que proteínas con una baja proporción de residuos expuestos evolucionan más rápidamente \cite{Bloom:2006eh}. Para explicar esta observación, aparentemente poco intuitiva, Franzosa y Xia \cite*{Franzosa:2009by} han sugerido que un aumento del núcleo proteico tiene poca influencia sobre la evolución de los residuos enterrados, pero el aumento en la estabilidad termodinámica podría relajar las constricciones impuestas sobre los residuos expuestos, que podrían tolerar, entonces, un mayor rango de sustituciones.
+
+Dado que, como hemos brevemente documentado en esta introducción, el efecto de la accesibilidad de un residuo al solvente sobre la capacidad evolutiva de dicho residuo ha sido materia de debate, consideramos interesante abordar esta cuestión empleando proteínas codificadas por el genoma mitocondrial, ya que éstas a menudo muestran patrones evolutivos distintos a los encontrados en proteínas codificadas por nDNA \cite{Welch:2008eq}. Para tal propósito, hemos explorado la dinámica evolutiva tanto de los residuos de superficie como de los residuos enterrados de citocromo b y COX 1, dos proteínas codificadas por mtDNA, comúnmente empleadas en estudios filogenéticos.
+
+\section{Objetivos}
+A la luz de los antencedentes anteriores, decidimos plantear los siguientes objetivos concretos:
+\begin{enumerate}
+\item Describir y comparar la variabilidad de cada posición de la estructura primaria, en relación con su accesibilidad al solvente.
+\item Estimar la contribución de cada residuo a la estabilidad termodinámica de la conformación nativa de la cadena polipeptídica, así como a la estabilidad del complejo enzimático del cual forma parte dicha cadena.
+\item Determinar si existe una relación entre la variabilidad de cada residuo y su contribución a la estabilidad termodinámica.
+\end{enumerate}
+
+\section{Material y métodos}
+
+\subsection{Datos y modelado molecular}
+
+Se obtuvieron 231 genomas mitocondriales de mamíferos (figura \ref{Fig1}) de la base de datos \textit{Genome}, perteneciente al NCBI (\textit{National Center for Biotechnology Information}, \url{http://www.ncbi.nlm.nih.gov}). Este conjunto de especies llevado a estudio comprende 27 órdenes distintos (véase apéndice A para más detalle). Los alineamientos de múltiples secuencias se llevaron a cabo con versiones superiores a las 2.0 de ClustalW \cite{Larkin:2007hz}, configurado con los siguientes parámetros: 15 y 6.6 para penalizaciones por \textit{gap} y extensión, respectivamente; 30\% para el retraso de secuencias divergentes\footnote{Traducido de <<\textit{delay divergent sequences}>>} y 0.5 para el ponderado de transiciones\footnote{Traducido de <<\textit{transition weight}>>}. La identidad de las secuencias para citocromo b y COX 1 fueron de 73 y 90\%, respectivamente.
+
+Se generaron por homología modelos de las estructuras de citocromo b y COX 1 para las secuencias ortólogas, usando como plantillas las estructuras obtenidas experimentalmente por difracción de rayos X correspondientes a \textit{Bos taurus}. Éstas se obtuvieron de la base de datos PDB (\textit{Protein Data Bank}) con los identificadores \texttt{1be3} y \texttt{2occ} para citocromo b y COX 1, respectivamente (véase apéndice \ref{apendice:datos}, tabla \ref{TablaPDBs}). Los cálculos estructurales se realizaron en Swiss-Model \cite{Peitsch:1995hh,Arnold:2006dv,Kiefer:2009jp}. Debido a dificultades en la generación de modelos fiables para todas las especies, los siguientes análisis estructurales se realizaron sobre 221 estructuras de citocromo b y 189 de COX 1. En la figura \ref{Fig1} se detalla para qué especies se obtuvieron dichos modelos.
+
+% Figura 1 del paper 1
+\begin{figure}
+\begin{center}
+\includegraphics[width=1\textwidth]{C2/Figuras/Figura1/Fig1.pdf}
+\end{center}
+\caption{\small{Árbol filogenético de las especies de mamíferos usadas en este estudio. Se obtuvo una colección de 231 especies almacenadas en las bases de datos del NCBI. Para cada especie, se concatenaron las secuencias de citocromo b y COX 1, se alinearon y se calculó la topología del árbol filogenético mediante el programa PHYLIP. Se ha anexado un vector bidimiensonal al nombre de cada especie. La primera coordenada indica si existe (1) o no (0) un modelo estructural confiable para citocromo b, y la segunda, se refiere de igual forma a COX 1.}}
+\label{Fig1}
+\end{figure}
+% Fin de figura 1 del paper 1
+
+\subsection{Determinación de las posiciones enterradas y expuestas}\label{sec:ASA}
+
+La superficie expuesta al solvente de una proteína fue definida por primera vez en 1971 por Lee y Richards \cite{Lee:1971dg}. En 1973, Shrake y Rupley \nocite{Shrake:1973ft} desarrollaron el algoritmo de la bola rodante para realizar el cálculo, que consiste en una simulación en la que una sonda esférica con un radio determinado (generalmente 1.4\AA, que coincide con el radio de una molécula de agua) recorre toda la superficie del modelo. En este trabajo se usó Surface Racer 5.0 \cite{Tsodikov:2002hy}, que devolvía la accesibilidad de cada residuo, definida ésta como el porcentaje de superficie expuesta del residuo en cuestión (\%ASA). Para computar tal valor, se toma como referencia (100\%), la superficie expuesta del aminoácido examinado en un tripéptido del tipo G-X-G en su conformación extendida ($\Phi$= -120º, $\Psi$=140º), donde G es glicina y X es el aminoácido estudiado \cite{Lee:1971dg}. En la tabla \ref{TablaASAmax} (apéndice \ref{anex:Mecom}) se detallan los valores de superficie máxima en angstroms de cada aminoácido.
+
+Cada residuo \textit{i} se clasificó en base al valor de su \%ASA$_i$, considerándose enterrado si es menor al 5\%, y expuesto en caso contrario ($\geq$ 5\%). Así, tras un alineamiento múltiple, se computó el número de veces que aparece cada residuo enterrado o expuesto en el conjunto de modelos atómicos obtenido anteriormente. Una posición se consideró enterrada cuando expone menos del 5\% de la superficie del aminoácido en la mayoría de las especies ($>$50\%).
+
+\subsection{Determinación de la entropía de Shannon}
+
+El análisis de la entropía de Shannon es una herramienta diseñada para cuantificar la diversidad de un sistema. Para los alineamientos múltiples de citocromo b y COX 1, se computó la variabilidad de cada posición mediante la ecuación \ref{ec:Shannon}.
+
+\begin{equation}
+\label{ec:Shannon}
+H_{c}(j) = - \sum_{i=1}^{c}p_{i}(j)log_{c}p_{i}(j)
+\end{equation}
+
+donde \textit{p$_i$(j)} es la frecuencia del residuo perteneciente a la clase \textit{i} en posición \textit{j}, y \textit{c} es el número de clases. Se calcularon dos valores de entropía para cada posición \textit{j: H$_6$(j)}, cuando los 20 aminoácidos se agrupan en 6 categorías (\textit{c} = 6) según sus propiedades físico-químicas y sus patrones naturales de sustitución \cite{Mirny:2001dr}, y \textit{H$_{20}$(j)}, en el que \textit{c} = 20 y, por tanto, los aminoácidos no se agrupan. La entropía toma valores comprendidos entre 0 y 1; un valor de entropía \textit{H$_c$(j)} bajo significa que existe poca variabilidad en la posición \textit{j}, si toma un valor nulo, significa que la posición es invariante o, dicho de otro modo, en todas las secuencias del alineamiento encontramos en la posición \textit{j} un aminoácido perteneciente a la misma clase. En caso opuesto, los valores cercanos a 1 implican una alta variabilidad en esa posición.
+Estos cálculos se llevaron a cabo mediante un script en Perl programado \textit{ad hoc}.
+
+\subsection{Clasificación de posiciones en base a sus valores de entropía de Shannon}
+
+Según los valores de entropía, y atendiendo a los siguientes criterios, se distinguieron cuatro tipos de posiciones: (i) valores bajos de \textit{H$_6$} y \textit{H$_{20}$} caracteriza la posición como constreñida, puesto que se han permitido pocas sustituciones en la evolución. Contrariamente, (ii) las posiciones con valores altos de ambas entropías se han nominado como no constreñidas. (iii) Valores bajos de \textit{H$_6$} y altos de \textit{H$_{20}$} implica que las sustituciones encontradas en esa posición ocurren entre aminoácidos con propiedades físico-químicas similares, y se categorizan como posiciones conservativas. Por último, (iv) valores bajos de \textit{H$_{20}$} pero altos de \textit{H$_6$}, indica que hay pocas sustituciones pero, la mayoría de ellas, se dan entre aminoácidos pertenecientes a clases distintas. Esta última categoría puede reflejar cambios adaptativos dirigidos por selección positiva.
+
+% Figura Shannon
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{C2/Figuras/ShannonCoord.pdf}
+\end{center}
+\caption{\small{Esquema de clasificación de posiciones según los valores de entropía de Shannon. Para cada proteína (citocromo b y COX 1), se calcularon los valores de los cuartiles superior \textit{UQ$_{c}$} e inferior \textit{LQ$_{c}$} para cada valor de entropía \textit{H$_6$} y \textit{H$_{20}$}. Los valores de los cuatro cuartiles de citocromo b fueron: \textit{UQ$_6$} = 0.0650, \textit{LQ$_6$} = 0.0049, \textit{UQ$_{20}$} = 0.0551 y \textit{LQ$_{20}$} = 0.0079. Para COX 1, los valores de los cuartiles fueron \textit{UQ$_6$} =  0.0222, \textit{LQ$_6$} = 0.0040, \textit{UQ$_{20}$} = 0.0376 y \textit{LQ$_{20}$} = 0.008.}}
+\label{Fig:ShannonCoord}
+\end{figure}
+% Fin de figura Shannon
+
+Para determinar cuándo un valor de \textit{H$_c$(j)} es alto o bajo, se calcularon, tras excluir previamente los residuos invariantes (\textit{H$_{20}$(j) = 0}), los cuartiles superior (\textit{UQ$_c$}) e inferior (\textit{LQ$_c$}), que se emplearon como umbrales superior e inferior, respectivamente (figura \ref{Fig:ShannonCoord}).
+
+\subsection{Cálculo de tasas de sustituciones}\label{calculo:sustituciones}
+
+El cálculo de las tasas de sustituciones empleando todos los pares de especies que se pueden formar a partir de la colección de 231 especies que disponemos (figura \ref{Fig1}), puede no ser fiable debido a la variación entre especies de algunas características de la secuencia como la frecuencia nucleotídica. De hecho, como ya se ha explicado en varias ocasiones en esta memoria, el sesgo nucleotídico puede emular el efecto de la selección positiva \cite{Albu:2008cf}. Por este motivo, tan solo calculamos las tasas de sustituciones entre pares de secuencias pertenecientes a especies filogenéticamente próximas (véase apéndice \ref{apendice:pairwise}). Para identificar todos los pares de especies cercanas presentes en nuestra muestra, se construyó un árbol filogenético a partir de secuencias de dos genes concatenados que codifican para RNA ribosómico, en lugar de usar las mismas secuencias de citocromo b y COX 1, de esta forma, se evitaba la posibilidad de un comportamiento tautológico. La resolución de la filogenia se realizó mediante métodos de máxima verosimilitud implementados en el programa PHYLIP (\textit{the PHYLogeny Inference Package}, \url{http://evolution.genetics.washington.edu/phylip/general.html}). Para el cálculo de las tasas de sustituciones, sólo se consideraron adecuados los pares formados por especies que se encuentran unidas directamente al mismo nodo interno. Se obtuvieron, entonces, 54 pares de especies cercanas. A partir de las secuencias de citocromo b y COX 1 se calculó en número medio de sustituciones nucleotídicas por sitio mediante el método de Nei-Gojobori \cite{Nei01091986} y se aplicó la corrección de Jukes-Cantor para inferir múltiples sustituciones en el mismo sitio. Así, para cada gen (citocromo b y COX 1), se obtuvieron 54 puntos en el plano \textit{d$_S$} x \textit{d$_N$}, donde \textit{d$_S$} representa el número medio de sustituciones sinónimas por sito sinónimo y \textit{d$_N$} es la media de las sustituciones no sinónimas por sitio no sinónimo.
+
+A continuación, cada alineamiento de cada uno de los genes analizados, se dividió en dos nuevos alineamientos segregando cada triplete según la accesibilidad al solvente del residuo para el que codifica. Así, se obtuvieron dos alineamientos por cada gen, uno con los tripletes que codifican para posiciones enterradas y otro con tripletes que codifican para posiciones expuestas. Para cada alineamiento, se calculó de nuevo \textit{d$_S$} y \textit{d$_N$} siguiendo la misma metodología explicada anteriormente.
+
+\subsection{Análisis de la estabilidad termodinámica}\label{apartado:ddg2}
+
+Los cálculos de estabilidad termodinámica de los modelos atómicos estudiados en esta tesis, se realizaron mediante métodos predictivos de alta fiabilidad, implementados en el algoritmo FOLDEF e integrado en el programa FOLD-X \cite{Guerois:2002he}. Tal y como explican sus autores, la estabilidad de una proteína se expresa como la diferencia de la energía libre ($\Delta$G) entre el péptido plegado y desnaturalizado.
+
+Las estructuras 3D de citocromo b y COX 1 fueron sometidas en primer lugar a un proceso de optimización integrado en FOLD-X llamado ``reparación'' (comando \texttt{RepairPDB}), que identifica aquellos residuos que tienen ángulos de torsión incorrectos o colisiones de \textit{van der Waal} (véase manual de usuario de FOLD-X para más detalle sobre el funcionamiento de este comando). Posteriormente, se ejecutó el comando \texttt{alascan}, que sustituye cada residuo por alanina y devuelve el valor de ${\Delta}{\Delta}G$ (${\Delta}G_{silvestre}$ - ${\Delta}G_{mutante}$) de cada simulación. Este proceso dio como resultado dos matrices de 221 x 379 y 189 x 514 con los valores de ${\Delta}{\Delta}G$ para citocromo b y COX 1, respectivamente.
+
+\subsection{Análisis estadísticos}
+
+Las distribuciones aleatorias se generaron mediante sencillos \textit{scripts} en Perl. Los cálculos de probabilidad se realizaron con el programa Wolfram Mathematica 8.0. El resto de los análisis estadísticos se hicieron con SPSS 15.0.
+
+\section{Resultados}
+Para abordar la cuestión de si la superficie e interior de las proteínas mitocondriales están sujetas a las mismas constricciones evolutivas, comenzamos por designar como ``enterrada'' o ``expuesta'' a cada posición de la estructura primaria de citocromo b y COX 1. Para tal propósito se empleo el criterio de accesibilidad expuesto en Materiales y Métodos. Brevemente, para cada una de las proteínas ortólogas de citocromo b, y otro tanto para las de COX 1, se obtuvieron modelos 3D. Esto permitió computar el área de superficie expuesta (ASA) de cada residuo en cada proteína ortóloga. La accesibilidad al solvente de un residuo dado, fue calculada como la razón entre la ASA del residuo en la estructura nativa de la proteína y la ASA de dicho residuo en una cadena polipeptídica desnaturalizada y extendida ($\Phi$= -120º, $\Psi$=140º). De esta forma,  tras realizar un alineamiento múltiple, cada posición fue designada como expuesta si en la mayoría de las especies ($>$50\%) el residuo que ocupa dicha posición tenía una accesibilidad superior al 5 \%, en caso contrario la posición se consideró enterrada (figura \ref{FigS3}).
+% Figura S3 del paper 1
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=0.65\textwidth]{C2/Figuras/FiguraS3/FigS3.pdf}
+\end{center}
+\caption{\small{Discriminación entre residuos expuestos y enterrados. Se determinó la accesibilidad de cada residuo en cada uno de los modelos atómicos de citocromo b y COX 1, obtenidos para cada especie. Los aminoácidos que exponen más del 5\% de su superficie se clasificaron como expuestos y el resto como enterrados. Se computó el numero de instancias (especies) en las que cada residuo aparece enterrado y se representó gráficamente frente a la posición del residuo en la estructura primaria de citocromo b $\bf{(a)}$ y COX 1 $\bf{(b)}$. Los rectángulos verticales de color abarcan las posiciones designadas en \textit{UniProt} como transmembranales. Aquellas posiciones que aparecen enterradas en la mayoría de las especies ($>$50\%) han sido consideradas como posiciones interiores (círculos azules). Las posiciones restantes se han considerado como posiciones de superficie (círculos rojos).}}
+\label{FigS3}
+\end{figure}
+% Fin de figura S3 del paper 1
+
+\subsection{El interior de COX 1 está enriquecido en posiciones invariantes, pero éstas se distribuyen aleatoriamente a lo largo de toda la estructura primaria de citocromo b}
+
+En una primera aproximación, una vez que cada posición se encontraba adscrita bien al conjunto de residuos enterrados o bien al de residuos expuestos, decidimos centrar nuestra atención en aquellos residuos que han permanecido invariantes durante la diversificación de los mamíferos. Más concretamente, formulamos la siguiente hipótesis nula:  las posiciones invariantes se distribuyen aleatoriamente entre el interior y la superficie de las proteínas consideradas. Para contrastar esta hipótesis, definimos una variable aleatoria, \textit{X}, como el número de residuos invariantes que se encuentran enterrados en el interior de la proteína. Para cada una de las dos proteínas analizadas, computamos el valor que toma \textit{X}, la proporción de residuos invariantes (\textit{p$_x$} = número de residuos invariantes/número total de residuos) y el número de residuos enterrados (\textit{n}). En la tabla \ref{tabla1} se resumen tales datos. De esta forma, bajo las condiciones definidas por la hipótesis nula, la variable aleatoria \textit{X} sigue una distribución binomial, \textit{X} $\sim$ Bin(\textit{n}, \textit{p$_x$}). Esto nos permitió calcular la probabilidad de que, por azar, encontráramos un número de residuos invariantes enterrados igual o superior al observado. Aunque tal probabilidad fue baja en el caso de ambas proteínas, citocromo b y COX 1, sólo en la última pudimos rechazar la hipótesis nula con un nivel de significatividad del 1 \% (\textit{p-valor} = 0.009).
+% Tabla 1 del paper 1
+\begin{table}[!hbt]
+	\centering
+	\begin{threeparttable}[b]
+	\caption{\label{tabla1} \small{Abundancia de residuos expuestos, enterrados e invariantes en citocromo b y COX 1.}}
+	\begin{tabular}[t]{l c c c c c }
+	\bf{Proteína} & \bf{\textit{P}$_{exp}$} & \bf{\textit{p}$_{x}$} & \bf{\textit{n}} & \bf{\textit{x}} & \bf{\textit{P}[\textit{X} $\geq$ \textit{x}]} \\
+	\hline
+	Citocromo b & 0.8482 & 0.314 & 58 & 22 & 0.175 \\
+	COX 1 & 0.6718 & 0.556 & 170 & 110 & 0.009 \\
+	\hline
+	\end{tabular}
+	\begin{tablenotes}
+	\item{\small{\textit{P$_{exp}$} es la proporción de residuos expuestos, \textit{p}$_{x}$ es la proporción de residuos invariantes, \textit{n} es el número de residuos enterrados, \textit{x} es el número de residuos invariantes enterrados y \textit{P}[\textit{X} $\geq$ \textit{x}] es la probabilidad de encontrar por azar un número de residuos invariantes enterrados mayor o igual al observado.}}
+	\end{tablenotes}
+	\end{threeparttable}
+\end{table}
+% Fin de tabla 1 del paper 1
+\subsection{El interior de COX 1, pero no el de citocromo b, exhibe una entropía de Shannon por debajo de lo justificable por el azar}
+Hasta ahora, tan sólo hemos analizado la distribución de posiciones invariantes, considerando una posición como invariante cuando el mismo aminoácido se encuentra, sin excepción, en las 231 especies analizadas. Para explotar la información contenida en el resto de posiciones, decidimos adoptar el formalismo de la teoría de la información para estudiar el grado de conservación evolutiva del interior de las dos proteínas mitocondriales objeto de este estudio. De esta forma, la variabilidad de cada posición puede ser medida mediante la llamada entropía de Shannon (véase la sección metodológica, ecuación \ref{ec:Shannon}).
+
+Tras computar $H_{6}$ y $H_{20}$ para cada posición, se calculó la media para los residuos enterrados. Así, los valores medios de $H_{6}$(enterrado) y $H_{20}$(enterrado) fueron 0.023 y 0.019, respectivamente, para citocromo b. Estos valores disminuyeron considerablemente al considerar COX 1, $H_{6}$(enterrado) = 0.006 y $H_{20}$(enterrado) = 0.005. 
+ Puesto que la entropía de Shannon es una variable que nos cuantifica el grado de conservación de una posición, estábamos en disposición de falsar la siguiente hipótesis nula: los residuos enterrados no están más conservados que el resto de residuos. Para tal propósito, comparamos las entropías medias observadas para los residuos enterrados $H_{c}$(enterrado), con la distribución de los valores medios de entropía de un conjunto de residuos tomados aleatoriamente de la proteína, y del mismo tamaño que el conjunto de residuos enterrados, $H_{c}$(aleatorio). Así pues, para citocromo b se formaron $10^5$ conjuntos aleatorios de 58 residuos cada uno, mientras que para COX 1 obtuvimos $10^5$ conjuntos  aleatorios de 170 residuos cada uno. Para cuantificar la significatividad de las diferencias observadas entre la entropía del interior de una proteína y la entropía de conjunto aleatorio de residuos, se cuantificó el número de veces que ocurrió $H_{c}$(aleatorio) $<$ $H_{c}$(enterrado) después de llevar a cabo los $10^5$ experimentos. Este dato, convenientemente expresado, nos proporciona el error tipo I (o error tipo alfa), que nos permite estimar la probabilidad de observar por azar un valor medio de entropía menor que el observado entre los residuos enterrados. De esta forma, con un nivel de significatividad $\alpha$=10\% no pudimos rechazar la hipótesis nula para el caso de citocromo b. Por el contrario, en el caso de COX 1 la hipótesis nula fue rechazada con errores tipo alfa tan bajos como $\alpha$ = 0.34\% y 0.00\%, para $H_{6}$ y $H_{20}$, respectivamente. Por tanto, estos resultados están en línea con los descritos anteriormente para los residuos invariantes.
+% Figura 2 del paper 1
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=1\textwidth]{C2/Figuras/Figura2/Fig2.pdf}
+\end{center}
+\caption{\small{Entropía de Shannon de las posiciones enterradas de citocromo b y COX 1. Una vez excluidas las posiciones invariantes, se calcularon los valores medios de entropía (H$_6$ y H$_{20}$) de las posiciones enterradas, representados en la esquina superior derecha de cada gráfica y con una flecha en el eje de abscisas. Estos valores se compararon con una distribución de valores medios de entropía de un número igual de residuos escogidos al azar de cualquier región de la proteína (interior y superficie).}}
+\label{Fig2}
+\end{figure}
+% Fin de figura 2 del paper 1
+
+Dado que observamos que las posiciones enterradas de COX 1 están enriquecidas con residuos invariantes, podríamos pensar que los bajos valores de $H_{c}$(enterrado) que hemos calculado anteriormente, son debidos fundamentalmente a la contribución de los residuos invariantes del núcleo de COX 1. En otras palabras, deseábamos averiguar si, una vez excluidos del análisis las posiciones invariantes, seguíamos concluyendo que los residuos enterrados están más constreñidos que los residuos expuestos en la superficie. Para abordar tal cuestión, una vez excluidas las posiciones invariantes, generamos conjuntos aleatorios de 36 y 60 residuos de citocromo b y COX 1, respectivamente. Estos conjuntos se utilizaron para generar distribuciones de $H_{c}$(aleatorio). La figura \ref{Fig2} muestra el resultado de semejante análisis. Como se puede deducir de dicha figura, los residuos variables enterrados de COX 1 se encuentran mucho más constreñidos que el resto de posiciones variables de COX 1 ($\alpha$ $<$ 5 \%). Sin embargo, para citocromo b, las diferencias entre posiciones enterradas y expuestas no alcanzaron significatividad estadística ($\alpha$ $>$ 18 \%).
+
+\subsection{Las posiciones no constreñidas se distribuyen aleatoriamente a lo largo de citocromo b, pero son selectivamente excluidas del interior de COX 1}
+
+Para cada proteína se formaron tres conjuntos de posiciones designados \emph{No constreñido}, \emph{Conservativo} y \emph{Radical}, siguiendo el criterio expuesto en Materiales y Métodos (figura \ref{Fig3}). Una vez definidos y formados estos conjuntos de posiciones, decidimos analizar si los residuos pertenecientes a cada una de estas categorías se encuentran presente preferentemente en, o por el contrario tienden a ser excluidos de, el interior de las proteínas. Para este propósito, computamos las frecuencias de residuos no constreñidos (\textit{p}$_{u}$ = 0.068 y 0.054), conservativos (\textit{p}$_{c}$ =0.018 y 0.037) y radicales (\textit{p}$_{r}$ = 0.034 y 0.031) en citocromo b y COX 1, respectivamente. Estas frecuencias se emplearon como estimadores de las probabilidades de que dada una posición cualquiera, ésta pertenezca a la correspondiente categoría. Por otro lado, definimos tres variables aleatorias (\textit{U}, \textit{C}, \textit{R}) como el número de posiciones no constreñidos enterradas, conservativas enterradas y radicales enterradas, respectivamente. Si estos tres tipos de posiciones se distribuyen aleatoriamente entre el interior y la superficie de las proteínas, cabría esperar que cada una de estas variables aleatorias siguiera una distribución binomial: \textit{U} $\sim$ Bi(\textit{n}, \textit{p}$_{u}$), \textit{C} $\sim$ Bi(\textit{n}, \textit{p}$_{c}$), \textit{R} $\sim$ Bi(\textit{n}, \textit{p}$_{r}$), siendo \textit{n} el número de residuos enterrados en la proteína bajo consideración. De esta forma, después de computar los valores que estas variables aleatorias toman en citocromo b y COX 1, estábamos en condiciones de conocer la probabilidad de encontrar por azar un número igual o superior a éste observado en la proteína bajo análisis. Una vez calculadas estas probabilidades (tabla \ref{tabla2}), concluimos que el interior de estas proteínas mitocondriales no está particularmente enriquecido en ninguno de estos tres tipos de posiciones, ya que en todos los casos la probabilidad anteriormente referida superaba el valor de 0.01, que es el límite de significatividad que habíamos fijado. 
+
+A continuación, examinamos la posibilidad alternativa de que alguna de estas tres categorías de posiciones estuviera siendo selectivamente excluida del interior de las proteínas. Para tal propósito, calculamos, asumiendo una distribución de residuos aleatoria, la probabilidad de encontrar en el interior de la proteína, debido únicamente al azar, un número de residuos de la categoría bajo examen igual o inferior al observado. De esta forma, cuando las probabilidades calculadas quedan por debajo de 0.01, rechazamos la hipótesis nula (los residuos de la categoría considerada se distribuyen aleatoriamente), y concluimos que el interior de la proteína excluye a este tipo de residuo. Como podemos observar en la tabla \ref{tabla2}, tan sólo el interior de COX 1 parece excluir selectivamente los residuos de la categoría no constreñida.
+% Figura 3 del paper 1
+\begin{figure}[!htb]
+\begin{center}
+	\subfigure{
+		\includegraphics[width=0.65\textwidth]{C2/Figuras/Figura3/Fig3a.pdf}
+	}
+	\subfigure{
+		\includegraphics[width=0.65\textwidth]{C2/Figuras/Figura3/Fig3b.pdf}
+	}
+\end{center}
+\caption{\small{Identificación y localización de las posiciones no constreñidas, conservativas y radicales. Para cada proteína, se representa H$_6$ frente H$_{20}$. Las líneas verticales y horizontales se corresponden con los los cuartiles superior e inferior de cada variable. Los círculos rellenos se corresponden con aquellas posiciones que se encuentran enterrados, mientras que los círculos vacíos representan las posiciones expuestas.}}
+\label{Fig3}
+\end{figure}
+% Fin de figura 3 del paper 1
+% Tabla 2 del paper 1
+\begin{table}[!hbt]
+\centering
+\begin{threeparttable}
+	\caption{\label{tabla2} \small{Probabilidades, de acuerdo con la hipótesis nula, de encontrar en el interior de cada proteína un número de posiciones no constreñidas (\textit{u}), conservativas (\textit{c}) o radicales (\textit{r}) menor o mayor que el observado.}}
+	\begin{tabular}[t]{l c c c c c c c}
+	\bf{Proteína} 
+	& \bf{\textit{n}}
+	& \bf{\textit{P}[\textit{U}$\leq$\textit{u}]}
+	& \bf{\textit{P}[\textit{C}$\leq$\textit{c}]}
+	& \bf{\textit{P}[\textit{R}$\leq$\textit{r}]}
+	& \bf{\textit{P}[\textit{U}$\geq$\textit{u}]}
+	& \bf{\textit{P}[\textit{C}$\geq$\textit{c}]}
+	& \bf{\textit{P}[\textit{R}$\geq$\textit{r}]}
+	\\
+	\hline
+	\bf{Cit. b}
+	& 58
+	& 0.438
+	& 0.913
+	& 0.135
+	& 0.764
+	& 0.281
+	& 1.000
+	\\
+	\bf{COX 1}
+	& 170
+	& 0.008**
+	& 0.05
+	& 0.101
+	& 0.991
+	& 0.983
+	& 0.969
+	\\
+	\hline
+	\end{tabular}
+	\begin{tablenotes}
+\item{\small{\textit{n} es el número de residuos enterrados de cada proteína}}
+\item{\small{Las hipótesis nulas asumen que el número de posiciones no constreñidas, conservativas y radicales siguen una distribución binomial (véase texto para más detalle)}}
+\item{\small{** Nivel de confianza menor que 0.01}}
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+% Fin de tabla 2 del paper 1
+
+\subsection{El gen de COX 1 está sujeto tanto a una presión selectiva como a una selección purificadora mayores que las del gen de citocromo b}
+
+Bajo la asunción de que las mutaciones silenciosas (sinónimas) son fundamentalmente neutras \cite{Kimura:1977cd}, la comparación de las velocidades de sustituciones sinónimas, \textit{\textit{d$_{S}$}}, entre los genes de COX 1 y citocromo b, nos sugiere una sorprendente mayor presión mutacional para COX 1 (figura \ref{Fig4}a). Por el contrario, cuando la variable comparada es la velocidad de sustituciones no sinónimas,  \textit{\textit{d$_{N}$}}, COX 1 mostró un menor valor, indicando que este gen está sujeto a un mayor grado de constricción debido a una fuerte selección purificadora (figura \ref{Fig4}b).
+ % Figura 4 del paper 1
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=0.9\textwidth]{C2/Figuras/Figura4/Fig4.pdf}
+\end{center}
+\caption{\small{Comparación de las tasas de sustitución inter- e intragénicas. Se calcularon las tasas de sustitución por sitio para cada par de especies próximas usando distintos conjuntos de residuos de citocromo b y COX 1 (véase texto para más detalles), y se representaron gráficamente para comparar los resultados.}}
+\label{Fig4}
+\end{figure}
+% Fin de figura 4 del paper 1
+ % Figura 5 del paper 1
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{C2/Figuras/Figura5/Fig5.pdf}
+\end{center}
+\caption{\small{Comparación de tasas de sustituciones no sinónimas entre distintos conjuntos de residuos. Se compararon las tasas de sustituciones no sinónimas por sitio para los conjuntos de residuos expuestos de citocromo b y COX 1 $\bf{(a)}$. De igual forma, se compararon los resultados entre los residuos del interior de ambas proteínas $\bf{(b)}$. Por último, se comparó del interior de citocromo b con la superficie de COX 1 $\bf{(c)}$.}}
+\label{Fig5}
+\end{figure}
+% Fin de figura 5 del paper 1
+
+En este punto nos preguntamos si habría diferencias en la presión mutacional y en la selección purificadora, entre los residuos expuestos y enterrados de una misma proteína.  Como se muestra en las figuras \ref{Fig4}c y d, no observamos diferencias significativas en los valores de \textit{d$_{S}$} del interior y la superficie de las proteínas. Por el contrario, las velocidades de sustituciones no sinónimas fueron remarcablemente menores entre los nucleótidos que codificaban para aminoácidos en posiciones enterradas, independientemente del gen examinado (figuras \ref{Fig4}e y f). No obstante, hay que destacar que el valor de \textit{d$_{N}$} para posiciones enterradas de COX 1 fue mucho menor que el observado para citocromo b (figura \ref{Fig5}). Aún así, la velocidad de sustituciones no sinónimas que afecta a los residuos enterrados de citocromo b estuvo por encima del valor \textit{d$_{N}$} correspondiente a los residuos expuestos de COX 1 (figura \ref{Fig5}c).
+
+\subsection{La estabilidad termodinámica puede dar cuenta del comportamiento diferencial de COX 1 y citocromo b}
+
+A menudo, la sustitución de un simple aminoácido en una proteína puede alterar dramáticamente la estabilidad de la misma. No sorprende, pues, que la estabilidad termodinámica haya sido señalada como un determinante de la capacidad evolutiva de las proteínas \cite{Bloom:2006ch,Tokuriki:2009fr}. De acuerdo con esta visión, postulamos la hipótesis de que las mutaciones que afectan a residuos enterrados de COX 1 tienen un efecto desestabilizante mayor que las que tienen lugar en el interior de citocromo b. Para contrastar esta hipótesis de trabajo, hemos analizado el efecto de estabilidad termodinámica (${\Delta}{\Delta}G$) que conlleva la sustitución individual de cada uno de los residuos enterrados por alanina. Para tal propósito, los cambios de estabilidad termodinámica de estas mutaciones fueron computados usando FoldX \cite{Guerois:2002he,Schymkowitz:2005uq}.
+
+En primer lugar, formulamos la hipótesis nula de que las mutaciones puntuales que afectan a posiciones enterradas no son más desestabilizadoras que las mutaciones puntuales que afecten a un sitio elegido aleatoriamente. Para contrastar esta hipótesis, se calculó la media del cambio de energía libre de la mutación de los residuos enterrados a alanina (${\Delta}{\Delta}G$). Este valor se comparó con la distribución de medias correspondientes a conjuntos de residuos aleatorios del mismo tamaño que el conjunto de residuos enterrados. Para obtener dicha distribución, se tomaron $10^6$ conjuntos aleatorios de 58 (para citocromo b) ó 179 (para COX 1) residuos. Cada uno de estos residuos se cambió por alanina y se calculó su correspondiente ${\Delta}{\Delta}G$, lo que permitió obtener el valor medio para cada conjunto.
+% Figura 6 del paper 1
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{C2/Figuras/Figura6/Fig6.pdf}
+\caption{\small{Efecto desestabilizador de mutaciones aleatorias en citocromo b y COX 1. El incremento medio en la energía libre (${\Delta}{\Delta}G$) causado por mutaciones en residuos del interior se representa en las gráficas mediante flechas azules (citocromo b) y negras (COX 1). Cada valor se comparó con una distribución de valores medios de ${\Delta}{\Delta}G$ obtenidos a partir de conjuntos del mismo tamaño pero compuesto por residuos tomados al azar de toda la proteína (véase texto para más detalles). Dichas comparaciones se realizaron tanto para el caso de la proteína aislada $\bf{(a)}$ como para la proteína formando parte de su respectivo complejo $\bf{(b)}$.}}
+\label{Fig6}
+\end{figure}
+% Fin de figura 6 del paper 1
+
+Como cabría esperar, las mutaciones que afectaban a residuos enterrados de COX 1 resultaron ser fuertemente desestabilizantes. La hipótesis nula pudo rechazarse con un valor de $\alpha$ inferior a una millonésima. Las mutaciones que afectaban al interior de citocromo b también fueron significativamente más desestabilizantes ($\alpha$ = 0.0002) que las mutaciones al azar. Sin embargo, cuando comparamos las distribuciones de ${\Delta}{\Delta}G$ de ambas proteínas, se hace evidente que citocromo b es mucho más robusto frente a mutaciones, desde el punto de vista de la estabilidad termodinámica (figura \ref{Fig6}). Estas observaciones sugieren que las sustituciones no sinónimas en posiciones enterradas podrían ser más fácilmente toleradas en el caso de citocromo b, mientras que estarían mucho más constreñidas en COX 1, lo cual está en línea con nuestros resultados anteriores (figura \ref{Fig5}).
+
+\section{Discusión}
+En la última década, se han llevado a cabo estudios que ponen de manifiesto la importancia de la superficie expuesta al solvente de una proteína sobre su capacidad evolutiva. Hasta la fecha, se han llevado a cabo experimentos con proteínas solubles en bacterias \cite{Bustamante:2000vw} y en levaduras \cite{Bloom:2006eh,Conant:2009ef,Franzosa:2009by,Lin:2007il}, cuyo resultado común es una mayor variabilidad en aquellos residuos expuestos al solvente sobre los del interior. La concordancia de estos trabajos, sugiere de una forma muy preliminar que esta regla puede hacerse extensible a todas las proteínas. Sin embargo, dada la gran diversidad de estructuras proteicas existentes en la naturaleza, así como los diferentes ambientes con los que interaccionan, es necesario realizar más experimentos que aporten robustez a esta teoría. A priori, no se puede aceptar que proteínas de membrana presenten un comportamiento evolutivo igual a las proteínas solubles con respecto a las diferencias entre superficie e interior. De hecho, ya se ha sugerido anteriormente que las proteínas integradas en la membrana evolucionan de forma distinta de lo que lo hacen otras \cite{Conant:2007kp,Popot:2000go}. Por ello, se han escogido para realizar estos análisis, citocromo b y COX 1, que se encuentran en esta categoría. Otra característica muy importante que diferencia nuestra muestra de las analizadas en los estudios precedentes, es el origen genómico. Éstas están codificadas por el genoma mitocondrial de mamíferos, que, como hemos apuntado anteriormente, es un genoma con una estructura y capacidad evolutiva muy particular en comparación con el nuclear y otros genomas mitocondriales como el de aves o plantas \cite{Ochman24032006}. Otros dos aspectos señalados son la implicación de estas proteínas en complejos heteroméricos, lo que da lugar a multitud de contactos intermoleculares, y la función en el transporte electrónico y de protones. Los resultados de este trabajo indican que, efectivamente, la superficie de las proteínas estudiadas evoluciona más deprisa que su interior (figura \ref{Fig4}), por lo que esta regla puede hacerse extensiva al genoma mitocondrial y a un tipo distinto de proteína sometida a las constricciones explicadas anteriormente. Tomando este hecho como punto de partida, el resto de esta investigación estuvo enfocado a discernir cuáles son los mecanismos evolutivos responsables de la divergencia en la capacidad evolutiva de la superficie y el interior de estas proteínas. 
+
+\subsection{Existen diferencias en la dinámica evolutiva de citocromo b y COX 1}
+
+Como explicamos, citocromo b, en comparación con COX 1, es más tolerante a los cambios en el interior. Esta premisa ha sido argumentada en este trabajo con una serie de evidencias. Primero, no se observaron diferencias en la distribución de residuos invariantes entre la superficie y el interior de citocromo b (tabla \ref{tabla1}). Segundo, la entropía de Shannon de los residuos enterrados de citocromo b no es significativamente menor que la media de un conjunto aleatorio de residuos obtenido de la misma proteína (figura \ref{Fig2}). Tercero, mientras los residuos no constreñidos se excluyen selectivamente del interior de COX 1, no existen diferencias significativas entre el interior y la superficie de citocromo b (tabla \ref{tabla2}). Cuarto, aunque los residuos del interior de citocromo b están más constreñidos que los de su superficie, es necesario enfatizar que la tasa de sustituciones no sinónimas de éstos es significativamente mayor que la de la superficie de COX 1 (figura \ref{Fig5}c). Por último, el efecto sobre la estabilidad de la proteína de las mutaciones en el interior de citocromo b es comparable, e incluso menor, que el efecto de las mutaciones sobre la superficie de COX 1 (figura \ref{Fig6}). Todos estos resultados nos dejan un escenario con dos elementos sobre los que discutir: por un lado, la descripción desde un punto de vista comparativo de las dinámicas evolutivas de citocromo b y COX 1, y por otro, la estabilidad termodinámica de ambas proteínas, que parece ser, \textit{a priori}, un factor que ejerce una presión selectiva sobre ellas. Con estas piezas, se pretende dilucidar la presencia de procesos evolutivos, adaptativos o no, que expliquen las diferencias entre citocromo b y COX 1.
+
+\subsection{La presión mutacional es mayor sobre COX 1 que sobre citocromo b}
+
+La presión mutacional es un factor que influye en gran medida en la variabilidad de las proteínas. Durante la replicación, la cadena pesada, que codifica para 12 genes de la cadena respiratoria, se encuentra en el estado de hebra sencilla durante un tiempo considerable, viéndose expuesta a un entorno hostil que genera mutaciones por cambios químicos como desaminaciones. Este periodo no es de igual duración para todos los genes  del genoma mitocondrial, y se ha observado una correlación positiva entre el lapso en hebra sencilla del gen durante la replicación (\textit{D$_{ssH}$}) y el porcentaje de sitios variables del mismo \cite{Reyes:1998vh}. El gen de COX 1 muestra valores de \textit{D$_{ssH}$} menores que citocromo b, sin embargo, los resultados de las tasas de sustituciones sinónimas fueron mayores (figura \ref{Fig4}a). Así pues, el hecho de que COX 1 presente una mayor tasa de sustituciones sinónimas que citocromo b debe explicarse por otros mecanismos distintos del tiempo de replicación (\textit{D$_{ssH}$}), como la frecuencia nucleotídica, o el tiempo en hebra sencilla durante la transcripción \cite{Faith:2003tp}. De hecho, recientes estudios indican que COX 1 se expresa más que citocromo b en mamíferos \cite{Nabholz:2013gr}. Todo esto sugiere que la diferencia en la presión mutacional entre estas proteínas puede estar más influenciada por el estrés que sufre la secuencia durante la transcripción que durante la replicación.
+
+\subsection{Las diferencias entre la evolución de citocromo b y COX 1 adquiere mayor relevancia en procesos post-transcripcionales}\label{protein:expr:evol}
+
+Los residuos que se encuentran en el interior y los que se encuentran en la superficie deben estar sujetos a presiones selectivas distintas, tal y como sugieren las tasas de sustituciones de cada región, dado que mientras que la tasas de sustituciones sinónimas son las mismas (figuras \ref{Fig4}c y d), las de sustituciones no sinónimas difieren considerablemente (figuras \ref{Fig4}e y f). ¿Cuáles son, entonces, las fuerzas biológicas que se encuentran detrás de este comportamiento diferencial? Atendiendo al ritmo evolutivo de las proteínas completas, sin distinguir de momento entre regiones distintas, COX 1 está significativamente más conservada que citocromo b. Este hecho ha sido descrito previamente \cite{Nabholz:2013gr} y está en línea con nuestros resultados (figura \ref{Fig4}b). Recientes trabajos sugieren que las fuerzas selectivas más importantes que explican las diferencias en la dinámica evolutiva de las proteínas en general, se encuentran en procesos post-transcripcionales. Esto se deduce del hecho de que el nivel de transcripción de un gen funciona como un buen predictor de su conservación, dada la correlación negativa existente entre su tasa evolutiva ($\omega$ = \textit{d$_N$/d$_S$}) y la concentración de mRNA procedente del gen \cite{Pal:2003bs,RochaEduardoPC:2004cb}. Tanto es así, que el nivel de expresión explica más de la mitad de la variación de las tasas evolutivas \cite{Drummond:2005cc}. COX 1 se expresa más que citocromo b y ambas se expresan más que el resto de las proteínas codificadas en el mtDNA \cite{Nabholz:2013gr}. Aunque este hecho \textit{per se} no pueda explicar las diferencias entre distintas regiones de la molécula, sí es posible que, sea cual sea el proceso post-transcripcional determinante de la dinámica evolutiva, ejerza una presión selectiva sobre residuos aislados. Existen tres teorías, no excluyentes entre sí \cite{Yang:2012hu}, que explican la covarianza entre el nivel de expresión y la tasa evolutiva. La primera es la selección en contra de la toxicidad de proteínas mal plegadas\footnote{Traducido de <<\textit{protein missfolding theory}>>} \cite{Drummond:2008jn} sobre la que existen diversos estudios empíricos que han apoyado esta teoría \cite{Zhou:2009db,Bogumil:2010we,Yang:2010kt,Warnecke:2010hw,Williams:2010dy}. La segunda, propuesta por Gout et al. \cite*{Gout:2010jw} y Cherry \cite*{Cherry:2010dk} argumenta que esta correlación viene dada por un compromiso entre los efectos beneficiosos de una proteína y el coste energético de su expresión. Por último, Yang et al. (2012) \nocite{Yang:2012hu} demostraron recientemente que la interacción no específica\footnote{Traducido de <<\textit{protein missinteraction theory}>>} entre proteínas puede ser otra de las causas, de forma que exista una mayor presión purificadora en contra de residuos que favorezcan este tipo de uniones \cite{Yang:2012hu}.
+
+Habiendo estudiado estas tres teorías, cabe preguntarse entonces qué aminoácidos o qué regiones se ven más afectadas por los mecanismos selectivos puestos en relevancia en cada una, y comprobar si se ajustan a las diferencias en la dinámica evolutiva de las distintas regiones de citocromo b y COX 1. Según la hipótesis del núcleo de plegado (SFN)\footnote{Traducido de <<\textit{specific folding nucleus}>>}, discutida en profundidad por Mirny et al. \cite*{Mirny:2001dr}, existe un conjunto de residuos que son responsables, en mayor medida, del correcto plegado de la proteína. Es lógico pensar entonces, que la presión ejercida por el mal plegado, propuesto por la teoría de Drummond et al. \cite*{Drummond:2008jn} sea más acusado en este grupo de residuos. Dado que los aminoácidos que componen el SFN se encuentran generalmente enterrados \cite{Ting:2002fq}, ésta es una teoría que encaja con nuestros resultados, explicando la mayor conservación del interior de citocromo b y COX 1 con respecto a sus respectivas superficies. No obstante, se deben tener en cuenta las recientes aportaciones que versan sobre los beneficios en la mitocondria de las proteínas desplegadas \cite{Tarrago:2012gj}, discutidas previamente en esta tesis (véase sección 1.6.8), que pueden influir de algún modo en la capacidad evolutiva de estas proteínas.
+
+El modelo de la segunda teoría, asume que cada aminoácido contribuye individualmente a la eficacia biológica de la proteína y, por tanto, el efecto de mutaciones deletéreas es proporcional al nivel de expresión de la proteína \cite{Gout:2010jw,Cherry:2010dk}. Este modelo predice que el alto coste energético de un elevado nivel de expresión, debe verse compensado por un fuerte beneficio energético por parte de cada aminoácido que compone la proteína. Es decir, que estarían vetadas todas las sustituciones aminoacídicas que no trajeran consigo una optimización de la función y, consecuentemente, una mayor rentabilidad energética. Apelando a esta teoría, que no ha sido aún demostrada experimentalmente, sería posible explicar la baja variabilidad de citocromo b y COX 1 con respecto al resto de las proteínas de la cadena respiratoria, puesto que son dos proteínas muy implicadas en la función bioenergética más importante en organismos aerobios. No obstante, Drummond et al. \cite*{Drummond:2005cc}, demostraron que las proteínas evolucionan a un ritmo no relacionado con la importancia de su función.
+
+Por último, la reciente teoría de Yang et al. \cite*{Yang:2012hu}, la teoría de las interacciones no específicas, predice una alta selección purificadora en los residuos de superficie, puesto que son éstos los que pueden establecer uniones no específicas y generar un efecto tóxico en la célula, al mismo tiempo que una reducción en la concentración de las proteínas implicadas. Según esta hipótesis, los residuos hidrofóbicos son los más excluidos de la superficie, debido a que son los más proclives a formar uniones inespecíficas. Sin embargo, la proporción de estos residuos en la superficie de citocromo b y COX 1 es mayor que en el interior (datos no mostrados), lo cual es esperable debido a que la función de ambas proteínas se lleva a cabo formando parte de complejos heteroméricos. Este hecho, indica que debe existir un compromiso entre el correcto ensamblaje de citocromo b y COX 1 en los complejos III y IV, respectivamente, y la evasión de las uniones inespecíficas.
+
+Sean o no ciertas estas teorías, las tres pueden explicar de un modo ponderado el comportamiento evolutivo de las proteínas. Así, es muy probable que sean aplicables en distinta medida según sea el objeto de estudio. En el caso de citocromo b y COX 1, las teorías del plegado incorrecto, junto con la del SFN, pueden verse reforzadas por los resultados obtenidos en este trabajo sobre el efecto de las mutaciones en la estabilidad termodinámica (véase más adelante), siempre y cuando se asuma que el SFN es también importante en el mantenimiento de la estructura una vez que la proteína se haya plegado, lo cual no queda explícito en el trabajo de Mirny y Shakhnovich \cite*{Mirny:2001dr}.
+
+\subsection{La estabilidad termodinámica está estrechamente relacionada con la dinámica evolutiva de citocromo b y COX 1}
+
+Nuestras evidencias, aportadas en este trabajo de tesis como uno de los objetivos, sugieren que el efecto de las mutaciones sobre la estabilidad es un factor determinante en la dinámica evolutiva de proteínas. Se ha observado que el cambio en estabilidad provocado por mutaciones en residuos enterrados son, en general, más desestabilizadoras que aquellas que afectan a posiciones expuestas, lo cual está en línea con los bajos valores de \textit{d$_{N}$} del interior comparados con los de superficie, independientemente de la proteína estudiada. Además, a pesar del hecho de que el interior de citocromo b evoluciona más lentamente que su superficie, los residuos enterrados de citocromo b evolucionan de forma semejante a los de la superficie de COX 1, lo que sugiere que pueden encontrarse bajo constricciones evolutivas de igual magnitud (figura \ref{Fig5}c). Esta observación encaja bien con los resultados de ${\Delta}{\Delta}G$, puesto que los obtenidos para el interior de citocromo b son comparables en manitud con los obtenidos para la superficie de COX 1, lo que explica que el centro de citocromo b es más estable frente a los cambios que el interior de COX 1.
+
+Estas evidencias añaden robustez a las teorías del plegado incorrecto y del SFN, expuestas previamente en esta discusión. Con todos estos argumentos en conjunto, se puede concluir que la estabilidad termodinámica es el factor más importante en la dinámica evolutiva de citocromo b y COX 1, no solo a favor del éxito en el plegado de la proteína después de su transcripción, sino también en el mantenimiento de su estructura terciaria.
+
+\subsection{La influencia de los complejos completos sobre la dinámica evolutiva de sendas subunidades difiere entre citocromo b y COX 1}
+
+Como se ha indicado en la introducción a este capítulo, existen evidencias que apoyan que la exposición al solvente de un determinado residuo es determinante en su capacidad evolutiva. Por ello, es razonable especular que una proteína con una baja proporción de residuos expuestos evolucionaría más lentamente en todo su conjunto. Sin embargo, el debate sobre esta hipótesis sigue abierto. Bloom y colaboradores \cite*{Bloom:2006eh} encontraron una correlación negativa entre la tasa evolutiva de la proteína completa y la proporción de residuos expuestos, argumentando que el aumento en la densidad de contactos entre residuos del interior, compensa considerablemente las constricciones provocadas por el decremento de aminoácidos en la superficie, dando lugar a un aumento en la variabilidad global de la secuencia. Aunque esto pueda resultar cierto en determinados conjuntos de proteínas, se observa una alta conservación de COX 1 con respecto a citocromo b, a pesar de que la proporción de residuos expuestos es considerablemente menor. De hecho, Lin et al. \cite*{Lin:2007il} detectaron una correlación positiva entre la proporción de residuos expuestos y la tasa de cambios no sinónimos, lo cual sí es coherente con nuestros resultados. Según estos autores, se obviaron algunas consideraciones en el trabajo de Bloom et al. \cite*{Bloom:2006eh}, como los contactos entre subunidades que forman parte de complejos heteroméricos.
+
+Los complejos citocromo bc$_1$ y citocromo c oxidasa, a los que pertenecen citocromo b y COX 1, respectivamente, son grandes sistemas heteroméricos con una gran importancia en el metabolismo aeróbico. Las interacciones entre las distintas cadenas de los complejos deben estar implicadas en la capacidad evolutiva de cada proteína, por lo que no se ha obviado en este trabajo. Mientras que los cambios en la estabilidad termodinámica permanecieron distribuidos de igual forma en el caso de citocromo b, tanto como subunidad aislada, como formando parte del complejo III; en el caso de COX 1 se observa una mayor pérdida de estabilidad cuando se realizó la simulación con la proteína formando parte del complejo IV (figura \ref{Fig6}). Esto indica, que COX 1 influye en la estabilidad del complejo al que pertenece en mayor medida de lo que lo hace citocromo b, dejando entrever posibles constricciones evolutivas derivadas de la estructura cuaternaria. En el tercer capítulo de esta tesis, entraremos en profundidad en este aspecto.
+
+\section{Conclusiones}\label{sec:conclusiones2}
+\begin{enumerate}
+\item Las posiciones invariantes se acumulan en el interior de COX 1, pero pueden estar distribuidas aleatoriamente en toda la proteína en el caso de Citocromo b.
+\item El interior de COX 1, al contrario que el interior de Citocromo b, muestra una baja entropía de Shannon, que se aparta significativamente de lo esperado por azar.
+\item Las posiciones no constreñidas se distribuyen aleatoriamente en Citocromo b, pero están excluidas selectivamente del interior de COX 1.
+\item El gen de COX 1 está sometido a una mayor presión mutacional y a una mayor selección purificadora con respecto a Citocromo b.
+\item La estabilidad termodinámica puede explicar las diferencias en el comportamiento evolutivo entre COX 1 y Citocromo b. 
+\end{enumerate}

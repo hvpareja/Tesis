@@ -1,0 +1,683 @@
+% Activate the following line by filling in the right side. If for example the name of the root file is Main.tex, write
+% "...root = Main.tex" if the chapter file is in the same directory, and "...root = ../Main.tex" if the chapter is in a subdirectory.
+
+%!TEX root =  ../Tesis.tex
+\chapter[Evolución de residuos implicados en contactos intermoleculares]{Evolución de aminoácidos del complejo citocromo c oxidasa (COX) implicados en contactos intermoleculares}\label{cap:contact}
+
+\section{Resumen}
+
+Los complejos que forman la cadena respiratoria están codificados por dos genomas (mtDNA y nDNA). Aunque la importancia de la coadaptación intergenómica es bien conocida, las fuerzas y constricciones que gobiernan la coevolución de estas proteínas son desconocidas. Trabajos previos en los que se usa citocromo c oxidasa (COX) como enzima modelo, propusieron la llamada ``hipótesis optimizadora''. Según esta teoría, los residuos codificados por mtDNA que se encuentran en contacto con otros codificados por nDNA, evolucionan más deprisa que el resto de las posiciones, favoreciendo la optimización de las interfaces proteína-proteína. En este capítulo, mediante el análisis de datos evolutivos, en combinación con información estructural de COX, dejamos constancia de, que al no discernir correctamente entre los efectos de la interacción entre residuos y otras variables estructurales, se puede llegar a conclusiones engañosas tales como la mencionada ``hipótesis optimizadora''. Una vez detectados los factores responsables que adulteraron los trabajos anteriores, llegamos a una conclusión opuesta, que indica que los residuos codificados por mtDNA en contacto con subunidades codificadas por el núcleo están, de hecho, más constreñidos en general que aquellos que no están en contacto. No obstante, los residuos de la superficie de la subunidad 1 (COX 1), que no se encuentran en contacto con ninguna otra subunidad, constituyen una notable excepción, puesto que se encuentran sujetos a una elevada selección purificadora. Además, en este capítulo documentamos que precisamente aquellos residuos codificados por mtDNA, que están en contacto con otros codificados por el mismo genoma, son aún menos variables que aquellos que interaccionan con polipéptidos codificados por nDNA. Este comportamiento diferencial no pudo ser explicado en términos de estabilidad termodinámica, ya que las interacciones entre subunidades codificadas por mtDNA contribuyen en menor medida a la estabilidad del complejo que aquellas formadas por diferentes genomas. Finalmente, atendiendo a las subunidades codificadas por nDNA, los residuos en contacto están más conservados que aquellos que no están en contacto, con la excepción de la subunidad COX 5A.
+
+\section{Introducción}
+
+Como consecuencia de la importancia de la función de los complejos oligoméricos que forman la cadena respiratoria, aquellas mutaciones que alterasen sus estructuras deberán enfrentarse al consecuente efecto de una elevada presión selectiva. De esta forma, la selección natural favorecerá la coadaptación entre proteínas que interactúan, ya sea hacia la mejora de sus funciones fisiológicas \cite{Schmidt:2005ub} o simplemente hacia la compensación de cambios ligeramente deletéreos que han sido fijados por deriva genética \cite{Osada:2011de}. Cualquiera que sea la fuerza evolutiva, existen numerosos trabajos que ponen de manifiesto la importancia biológica de la adaptación intergenómica. Algunos ejemplos muy ilustrativos se hallan en algunos trabajos en los que se llevan a cabo estudios sobre cíbridos xenomitocondriales, que son células con el mtDNA de una especie y el nDNA de otra. Conforme más alejadas filogenéticamente estaban estas especies, más deficiente resultaba la fosforilación oxidativa \cite{Barrientos:2000un,McKenzie:2003ju}. Estos resultados indicaban la importancia de la coevolución entre genomas presentes en la misma célula. En otros estudios, realizados con copépodos (\textit{Tigriopus californicus}), se llegaron a conclusiones similares. En éstos, se obtuvieron poblaciones en las que los individuos contenían el nDNA de una población y el mtDNA de otra. De forma similar que en el ejemplo anterior, esta población de híbridos mostraba un funcionamiento deficiente en la fosforilación oxidativa \cite{Edmands:1999dd}. Otra línea que evidencia la coevolución entre genomas se expone en estudios de epistasia en los que se observa que mutaciones en mtDNA asociadas a enfermedades en humanos están fijadas u ocurren de forma natural en genomas de mamíferos no humanos \cite{Magalhaes:2005hc,Azevedo:2009er}.
+
+A pesar de que estos estudios enfatizan la relevancia de la coevolución entre proteínas que interaccionan, no arrojan luz sobre las fuerzas y constricciones que modulan tal coevolución. En un intento de explorar la dinámica evolutiva de las regiones que forman las interacciones proteína-proteína, Schmidt y colaboradores \cite*{Schmidt:2001ti} llevaron a cabo varios análisis sobre el complejo citocromo c oxidasa (COX), como holoenzima modelo. En este trabajo, se analizó la tasa de sustituciones no sinónimas del conjunto de residuos codificados por mtDNA próximos a aminoácidos codificados por nDNA, y se comparó con el mismo parámetro procedente del conjunto complementario (aquellos residuos codificados por mtDNA que no están en contacto con residuos codificados por nDNA). Sus autores llegaron a la conclusión de que los residuos de origen genómico mitocondrial, en contacto con subunidades codificadas en el núcleo, evolucionan más deprisa que aquellos que no están en contacto \cite{Schmidt:2001ti}. Estos resultados fueron interpretados como un proceso de optimización de las interacciones entre proteínas. De hecho, los mismos autores denominaron este fenómeno como ``interacción optimizadora''. Por otro lado, cuando los residuos de COX codificados por nDNA fueron segregados según su proximidad a subunidades codificadas por mtDNA y se analizó la tasa de sustituciones no sinónimas, la conclusión a la que llegaron fue la opuesta, es decir, aquellos residuos codificados por nDNA en contacto con otros codificados por mtDNA evolucionan más lento que el resto de los residuos del mismo origen genómico \cite{Schmidt:2001ti}.
+
+Estos resultados tan llamativos han sido citados frecuentemente en la literatura relacionada \cite{Willett:2003hx,Das:2004id,Castellana:2011jn}. Mientras que la lenta evolución de los residuos codificados por nDNA, implicados en contacto con otras subunidades, está en línea con la idea preestablecida de que la evolución de regiones implicadas en interacciones es conservativa, la observación de que las regiones codificadas por mtDNA en contacto con residuos de origen intergenómico evolucionan a mayor velocidad, si se confirmase como un resultado fiable, merece una explicación sólida. Así pues, en este capítulo hemos revisado en profundidad la ``hipótesis optimizadora''. Usando un conjunto de especies de gran tamaño muestral y ampliando los análisis estadísticos precedentes, observamos que los residuos codificados por mtDNA en contacto con residuos codificados por nDNA están, en contraste con la ``hipótesis optimizadora'', sujetos a mayores constricciones evolutivas que sus residuos homólogos que no están en contacto. Además, exponemos detalladamente porqué los autores anteriores fallaron en la interpretación de sus resultados. Adicionalmente, mostramos una intrigante diferencia en las tasas evolutivas de residuos codificados por mtDNA en contacto con residuos de origen intra- (mtDNA) e intergenómico (nDNA).
+
+\section{Objetivos}
+En el trabajo de investigación que se desarrolla en este último capítulo, se han combinado las conclusiones alcanzadas en el capítulo anterior sobre la evolución diferencial entre interior y superficie de proteínas, con el conocimiento actual sobre el efecto de las interacciones interproteicas en la dinámica evolutiva de proteínas mitocondriales. De forma sucinta, los objetivos planteados fueron:
+\begin{enumerate}
+\item Desarrollar un modelo que permitiera realizar análisis evolutivos de regiones de la estructura cuaternaria de proteínas, acotadas según su exposición al solvente y la distancia a residuos pertenecientes a otros péptidos que forman parte del mismo complejo.
+\item Describir la dinámica evolutiva de residuos del complejo citocromo c oxidasa que se encuentran implicados en contactos intermoleculares con otras subunidades, atendiendo a su origen genómico.
+\end{enumerate}
+
+\section{Material y métodos}\label{sec:MM3}
+
+\subsection{Datos}
+% Secuencias y estructuras
+Los datos analizados en este capítulo son referentes a las secuencias y estructuras de las 13 subunidades distintas que forman el complejo citocromo c oxidasa (complejo IV). La información genética fue obtenida del NCBI (\emph{National Center for Biotechnology Information}, \url{http://www.ncbi.nlm.nih.gov}). Ésta comprende, por un lado, las secuencias de los genomas mitocondriales de 371 especies de mamíferos y por otro, entre 14 y 30 secuencias ortólogas de los genes nucleares que codifican para las 10 subunidades del complejo (véase apéndice \ref{apendice:datos}). Para cada subunidad, se llevó a cabo un alineamiento múltiple de secuencias mediante ClustalW. Los alineamientos resultantes están disponibles en \url{http://mecom.hval.es/datasets}.
+
+La información estructural del complejo IV fue obtenida del archivo identificado como \texttt{2occ} (citocromo c oxidasa de \textit{Bos taurus}) en la base de datos PDB (\emph{Protein Data Bank}, \url{http://www.pdb.org/}).
+
+% Edad de las proteínas
+La edad de cada subunidad fue estimada mediante el servidor \emph{ProteinHistorian}, cuya interfaz de usuario está disponible vía web en \\ \url{http://lighthouse.ucsf.edu/ProteinHistorian/} \cite{Capra:2012bt}.
+
+\subsection{Diseño e implementación del modelo de estudio}\label{apartado:modeloMecom}
+
+La función principal que desempeña el algoritmo diseñado para el análisis evolutivo llevado a cabo en este trabajo, es segregar los alineamientos de las distintas subunidades en otros nuevos en base a las características estructurales de los aminoácidos para los que codifican, concretamente, la exposición del residuo al solvente y su proximidad a subunidades distintas a las que pertenecen. En la figura \ref{Fig3.1}
+se representa un esquema del algoritmo implementado en este trabajo, tomando como ejemplo COX 1, una subunidad codificada por mtDNA. El esquema está dividido en 4 fases: (i) Datos, (ii) Segregación de alineamientos, (iii) Análisis y (iv) Contraste. La primera fase consiste en la recolección de datos, el alineamiento de las secuencias y la caracterización estructural de los tripletes (véase apartado \ref{apartado:estruct_residuos}). La segunda fase, representada en el esquema con un color más intenso, es la división de los alineamientos en otros, compuestos por subconjuntos de codones procedentes del alineamiento principal. Los criterios de clasificación se exponen en el recuadro inferior del mismo esquema. La tercera fase, consiste en la caracterización evolutiva de los alineamientos (véase apartado \ref{apartado:evol_anal}) y la cuarta, implementa una prueba estadística Z destinada a evaluar si los valores de $R$ son significativamente distintos de cero.
+% Figura 1 del paper 3
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{C3/Figuras/Figura1/Fig1.pdf}
+\caption{\small{Esquema del modelo de análisis. El flujo de trabajo se divide en cuatro fases, de izquierda a derecha: (i) Datos, (ii) Segregación de alineamientos, (iii) Análisis y (iv) Contraste. Los detalles de cada una de las fases se explican en el texto.}}
+\label{Fig3.1}
+\end{figure}
+% Fin de figura 1 del paper 3
+
+Este proceso ha sido implementado en un software desarrollado \textit{ad hoc} para este trabajo, al que hemos denominado con las siglas MECOM (\emph{Molecular Evolution of protein COMplexes}). Éste, junto con un manual de uso, ha sido almacenado en repositorios de acceso público (CPAN, \url{http://search.cpan.org/~hvalverde/Mecom-1.15/} y GitHub \url{https://github.com/hvpareja/Mecom}) y se ha desarrollado un sitio web dedicado al desarrollo y mejora del software (\url{http://mecom.hval.es/}). En el apendice \ref{anex:Mecom} se describen los detalles técnicos del programa.
+
+\subsection{Caracterización estructural de los residuos}\label{apartado:estruct_residuos}
+
+A partir del modelo atómico del complejo citocromo c oxidasa, se llevó a cabo un análisis estructural atendiendo a la superficie expuesta al solvente de cada residuo y la proximidad a otros residuos pertenecientes a otras cadenas del complejo. Para el primer caso, se procedió, de forma similar a la descrita en la sección \ref{sec:ASA} del capítulo \ref{cap:surfbur}, el porcentaje de superficie expuesta al solvente de cada residuo (\%ASA$_i$) mediante el programa DSSP (\emph{Dictionary of Protein Secondary Structure}). Se consideró que el residuo, $i$,  está enterrado si  \%ASA$_i < 5\%$. Por otra parte, el cálculo de las distancias euclídeas entre aminoácidos se realizó mediante software desarrollado para este trabajo. Primero, se obtuvo la distancia en angstroms para cada par de grupos atómicos de cada par de residuos pertenecientes a cadenas distintas, en segundo lugar, se determinó que la distancia entre dos residuos se corresponde con la distancia más corta entre el par de grupos atómicos más cercanos (figura \ref{FigDis}). Se determinaron como residuos en contacto aquellos pares cuya distancia resultó inferior o igual a 4\AA.
+
+% Figura Dis
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{C3/Figuras/FiguraDist/distances.pdf}
+\caption{\small{Determinación de distancia entre dos residuos. Se calculó la distancia eculídea entre cada par de coordenadas pertenecientes a grupos atómicos de dos residuos localizados en cadenas distintas. Posteriormente, se determinó la distancia atómica más corta como la proximidad entre los dos aminoácidos. En el caso del ejemplo representado en la imagen, la distancia entre Leu18 de la cadena C (COX 3) y Trp103 de la cadena A (COX 1) es de 4.0\AA.}}
+\label{FigDis}
+\end{figure}
+% Fin de figura Dis
+
+\subsection{Caracterización evolutiva de la subunidades}\label{apartado:evol_anal}
+
+\subsubsection{Tasa de sustituciones no sinónimas}\label{apartado:dn3}
+A partir de cada alineamiento $i$, numerados del 1 al 5 en el ejemplo de la figura \ref{Fig3.1}, se calcularon para cada par de secuencias, $j$, las tasas de sustituciones no sinónimas por sitio no sinónimo ($d_{Nj}$) mediante el método de Nei \& Gobori \cite*{Nei01091986} implementado en PAML 4.6 \cite{Yang:2007uq,Yang:2000vx}. Se calculó entonces el sumatorio de los valores obtenidos para el total los pares de secuencias $p$, tal y como se expresa en la ecuación \ref{ecsdn}.
+
+\begin{equation}
+\label{ecsdn}
+{\Sigma}d_{Ni} = \sum_{j=1}^{p}d_{Nj}
+\end{equation}
+
+Además, para el caso de las subunidades codificadas por mtDNA (COX 1, COX 2 y COX 3), las cuales son las cadenas con mayor número de aminoácidos del complejo IV (514, 227 y 261, respectivamente), fue posible generar una distribución aleatoria de ${\Sigma}d_{Ni}$. Para ello, a partir del alineamiento original de cada subunidad, se tomaron al azar un número de nucleótidos igual al del alineamiento correspondiente al subconjunto de residuos $i$. Posteriormente se calculó, para este conjunto aleatorio, el valor de ${\Sigma}d_{Ni}$ (ecuación \ref{ecsdn}). Este proceso se repitió $10^4$ veces, obteniendo una distribución aleatoria empírica de esta variable.
+
+Con el ánimo de comprobar si el comportamiento de los valores de $d_N$, calculados para la muestra completa de secuencias, es uniforme a lo largo de la escala filogenética, se llevo a cabo un análisis basado en linajes mediante un método de máxima verosimilitud\footnote{<<\emph{Maximun likelihood}>>} (modelo F3x4), implementado en el programa \texttt{codeml} del paquete PAML \cite{Yang:2007uq}. Para este propósito, se obtuvo, en primer lugar, el árbol filogenético de siete especies de mamíferos (\textit{Bos taurus}, \textit{Sus scrofa}, \textit{Equus caballus}, \textit{Ailuropoda melanoleuca}, \textit{Mus musculus}, \textit{Rattus norvegicus} y \textit{Cavia porcellus}) para las que se disponía de las secuencias de los genes que codifican para las 13 subunidades de COX, tomando como grupo externo la especie \textit{Danio rerio}.
+
+\subsubsection{Tasa de interacción}\label{apartado:R}
+
+Dado que el interés principal de este trabajo es la caracterización de las diferencias en el comportamiento evolutivo de distintos subconjuntos de residuos de cada subunidad del complejo, se calculó la denominada \emph{tasa de interacción}, descrita previamente en la literatura \cite{Schmidt:2001ti}. Este valor, representado por $R_{1,2}$, es el cociente entre el valor de ${\Sigma}d_N$ del conjunto 1 y el conjunto 2 (ecuación \ref{ec3.1}).
+
+\begin{equation}
+\label{ec3.1}
+R_{1,2} = \frac{{\Sigma}d_{N1}}{{\Sigma}d_{N2}}
+\end{equation}
+
+De esta forma, si el resultado de la tasa de interacción para un par de conjuntos es significativamente superior a 1 ($R_{1,2} > 1$), puede interpretarse que el conjunto 1 presenta una tasa evolutiva significativamente superior a la del conjunto 2, y viceversa. Por el contrario, si el valor de $R_{1,2}$ no es distinto de 1, se puede deducir que las tasas evolutivas de los dos conjuntos no difieren. Para contrastar estadísticamente si cada valor de $R_{i,j}$ fue significativamente distinto de 1, se llevó a cabo una prueba estadística Z.
+
+\subsubsection{Tasa de evolución relativa (RER)}
+
+Con el objetivo de añadir robustez a los resultados obtenidos en este trabajo, se calculó otro parámetro evolutivo denominado \emph{tasa de evolución relativa} (RER). Para este propósito se usó el programa MEGA 5 \cite{Tamura:2011kx}, que implementa un método de máxima verosimilitud y hace uso del modelo de sustitución de Jones-Taylor-Thornton \cite{Jones:1992vn} para estimar dicho parámetro. Se calcularon las diferencias en las tasas evolutivas entre los sitios, usando como modelo una distribución Gamma (+G) discreta. Se consideraron 5 categorías Gamma. Los resultados obtenidos fueron escalados de forma que el valor medio de las tasas de todos los sitios fuese 1. Así, los sitios con valores menores a 1 evolucionarían más lento que la media y los sitos con valores mayores a 1 evolucionarían más deprisa.
+
+\subsection{Cambios en la estabilidad termodinámica (${\Delta}{\Delta}G$)}
+
+Al igual que en el trabajo recogido en el capítulo \ref{cap:surfbur} (página \pageref{apartado:ddg2}), se hizo uso del programa FoldX versión 3.0 \cite{Guerois:2002he} para calcular los cambios en la estabilidad termodinámica  ${\Delta}{\Delta}G$, provocados por una mutación puntual en cada una de las posiciones de cada subunidad (comando \texttt{alascan}). Previamente, y al igual que en el capítulo anterior, se llevó a cabo una optimización del modelo (comando \texttt{RepairPDB}). Posteriormente, se calculó la media de ${\Delta}{\Delta}G$ de los conjuntos de residuos pertenecientes a las categorías ``No Contacto Expuesto'', ``Contacto mt-mt'' y ``Contacto mt-nu''.
+
+\section{Resultados}
+En el capítulo anterior, se ha descrito la dinámica evolutiva de dos proteínas que forman parte de complejos multiprotéicos de la membrana mitocondrial interna. Los resultados obtenidos sobre COX 1, perteneciente al complejo IV o citocromo c oxidasa, nos llamaron especialmente la atención por la alta conservación de sus residuos y la susceptibilidad de su estructura ante mutaciones. Además,  un cambio en cualquier residuo de COX 1 tuvo una repercusión significativamente mayor sobre la estabilidad del complejo al completo que sobre la proteína en sí misma (figura \ref{Fig6}). Motivados por estas observaciones, se quiso abordar un nuevo estudio en el que se pusiera de manifiesto el comportamiento evolutivo de los contactos intermoleculares existentes entre COX 1 y el resto de las cadenas del complejo IV.
+
+\subsection{Comparativa entre los dos modelos de estudio}
+
+En el trabajo de Schmidt y colaboradores \cite*{Schmidt:2001ti}, se llevaron a cabo análisis de las tasas de sustitución de residuos en contacto con otros de distinta cadena del complejo. A partir de un alineamiento de secuencias de 26 especies de mamíferos distintas, se construyeron dos alineamientos nuevos: el primero, denominado ABC$_{Contacto\ mt-nu}$,  estaba formado por nucleótidos del genoma mitocondrial (cadenas A, B y C) que codificaban para residuos en contacto con cadenas codificadas por el genoma nuclear (cadenas D-M). El segundo estaba formado por el conjunto complementario, (ABC$_{Contacto\ mt-nu}$)$^c$, es decir, por aquellos nucleótidos que codificaban para residuos que no estaban en contacto con cadenas codificadas por nDNA. Esta división de posiciones se representa en el recuadro (a) de la figura \ref{Fig3.2}. Con estos datos, se calculó la tasa de interacción, R$_{ABC_{Contacto\ mt-nu}, ABC_{(Contacto\ mt-nu)^c}}$, cuyo resultado fue significativamente mayor a la unidad (véase apartado \ref{apartado:R} de Material y Métodos). Esto indicaba, según la interpretación propuesta por los mismos autores, que aquellos aminoácidos codificados por mtDNA, cercanos en la estructura cuaternaria a otros codificados por nDNA, presentan una tasa evolutiva más alta que el resto de los residuos del mismo origen genómico.
+
+% Figura 2 del paper 3
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth]{C3/Figuras/Figura2/Fig2.pdf}
+\caption{\small{Estructura de los subconjuntos de residuos de COX codificados por el genoma mitocondrial. Las subunidades codificadas por nDNA se representan como superficie en color gris, mientras que las subunidades codificadas por mtDNA se representan como esferas de distinto color. En el recuadro (a) se representan los subconjuntos de posiciones construidos en el modelo de Schmidt \protect\cite*{Schmidt:2001ti}, y en el recuadro (b) se representan los subconjuntos adicionales construidos en el modelo que se propone en este trabajo.}}
+\label{Fig3.2}
+\end{figure}
+% Fin de figura 2 del paper 3
+Como punto de partida para los análisis realizados en este capítulo, se reprodujeron los resultados del trabajo de Schmidt y colaboradores con un mayor número de secuencias ortólogas en los alineamientos originales (371 frente a 26). El resultado de la tasa de interacción de nuestro ensayo fue de 1.805 $\pm$ 4\e{-4}, significativamente mayor a 1. Aunque este resultado es coherente con el trabajo anterior, pensamos que el modelo experimental del trabajo de Schmidt et al., fue poco minucioso en la selección de los conjuntos de residuos llevados a estudio, especialmente el en el caso del grupo ABC${_{Contacto\_mt-nu}}^c$, que incluye una colección de residuos muy heterogénea, lo que les llevó a obviar dos aspectos muy importantes desde el punto de vista estructural: (i) la exposición al solvente, que como se ha demostrado en el trabajo recogido en el capítulo anterior (página \pageref{sec:conclusiones2}), es influyente en la dinámica evolutiva y (ii) la interacción entre residuos de distintas cadenas, pero codificadas por el mismo genoma mitocondrial (interacciones entre COX 1, COX 2 y COX 3). Teniendo en cuenta estos aspectos, en nuestro modelo se incluyó, por un lado, el alineamiento ABC$_{Contacto\ mt-nu}$, y por otro, dos alineamientos construidos a partir del grupo (ABC$_{Contacto\ mt-nu}$)$^c$: uno con los residuos en contacto con cadenas codificados por el genoma mitocondrial, ABC$_{Contacto\ mt-mt}$, y otro con aquellos residuos libres\footnote{Entiéndase <<\emph{residuo libre}>> como aquel aminoácido que no está en contacto con otra subunidad del complejo, es decir, perteneciente subconjunto denominado ``No Contacto''.} y expuestos al solvente (\%ASA $\geq$ 5\%), ABC$_{No\ Contacto\ Expuesto}$ (figura \ref{Fig3.2}b). Además, se calcularon las tasas de interacción a partir de los alineamientos de cada cadena por separado. Así, los resultados mostrados en la tabla \ref{Tabla3.1}, aportaron más información sobre la contribución de cada subunidad codificada por mtDNA a los resultados obtenidos con los alineamientos de las tres proteínas concatenados.
+
+\subsection{Comportamiento evolutivo de las distintas regiones de las cadenas codificadas por mtDNA}
+
+Una vez que segregados los residuos en sus correspondientes categorías, atendiendo a las propiedades estructurales mencionadas anteriormente, y habiendo reproducido los resultados de los análisis precedentes \cite{Schmidt:2001ti}, quisimos abordar el estudio de la dinámica evolutiva de cada categoría de una forma más robusta. Para ello, tomamos diversas aproximaciones metodológicas. Una de ellas consiste en el cálculo de la denominada tasa de evolución relativa ($RER$). Este método, implementado en el programa MEGA 5 \cite{Tamura:2011kx}, permite estimar las diferencias en la tasa evolutiva entre distintos sitios de una misma secuencia. En este parámetro, el valor de la unidad representa la tasa evolutiva media del conjunto completo, así, si el valor de $RER$ es superior a 1 en un subconjunto, indica que la tasa evolutiva de éste es superior a la media y, por el contrario, un valor inferior a 1, indica que la tasa evolutiva es inferior a la media. En la tabla \ref{TablaRER}, se observa que el grupo de residuos pertenecientes a las categorías ``Contacto mt-mt'' y ``No Contacto Enterrado'' son los más constreñidos independientemente de la subunidad considerada, ya que muestran valores de $RER$ inferiores a la unidad. 
+% Tabla RER
+\begin{table}[!hbt]
+\centering
+\begin{threeparttable}
+	\caption{\label{TablaRER} \small{Tasas de evolución relativa (RER)}}
+	\begin{tabular}{c c c c c}
+	& \multicolumn{4}{ c }{\textbf{\textit{RER}}}\\
+	\cmidrule[1pt]{2-5}
+	& \bf{ABC}
+	& \bf{A}
+	& \bf{B}
+	& \bf{C}
+	\\
+	\midrule
+	\textbf{No\ Contacto\ Expuesto}
+	& 1.27 $\pm$ 2.26
+	& 1.03 $\pm$ 2.17
+	& 1.52 $\pm$ 1.87
+	& 1.48 $\pm$ 2.54\vspace{0.3cm}
+	\\
+	\textbf{Contacto\ mt-mt}
+	& 0.41 $\pm$ 0.92
+	& 0.26 $\pm$ 0.31
+	& 0.32 $\pm$ 0.45
+	& 0.88 $\pm$ 1.82\vspace{0.3cm}
+	\\
+	\textbf{Contacto\ mt-nu}
+	& 1.60 $\pm$ 2.33
+	& 2.33 $\pm$ 2.98
+	& 1.21 $\pm$ 1.67
+	& 0.90 $\pm$ 1.26\vspace{0.3cm}
+	\\
+	\textbf{No\ Contacto\ Enterrado}
+	& 0.41 $\pm$ 0.62
+	& 0.39 $\pm$ 0.53
+	& 0.78 $\pm$ 1.00
+	& 0.16 $\pm$ 0.22
+	\\
+	\bottomrule
+	\end{tabular}
+	\begin{tablenotes}
+\item{\small{Los valores de la tasas de evolución relativa que se muestran en la tabla se expresan como media $\pm$ desviación típica. Los valores inferiores a 1 indican que la tasa evolutiva del conjunto correspondiente es menor que la media y, por el contrario, los valores superiores a 1 indican que la tasa evolutiva es mayor que la media. Los valores que no son distintos de 1 se corresponden con los residuos cuya tasa evolutiva no difiere de la media.}}% Pie de tabla
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+% Fin de tabla RER
+
+Con el fin de fortalecer las conclusiones obtenidas a partir de estos resultados, se han representado en la tabla \ref{TablaSigmadN} los valores de ${\Sigma}d_N$ de cada una de las categorías. Este valor es el resultado del sumatorio de todas las tasas de sustituciones no sinónimas por sitio no sinónimo ($d_N$) de todos los pares de secuencias de la muestra (véase apartado \ref{apartado:dn3} de Material y Métodos para más detalles). Estos resultados están en línea con los valores de $RER$, sin embargo, ambos parámetros tan solo ofrecen una visión global de la capacidad evolutiva de cada subunidad, pero no ofrecen información suficiente para determinar si esta dinámica evolutiva está realmente presente en la mayoría de los linajes de mamíferos. Para abordar esta cuestión, se realizó un nuevo análisis basado en la filogenia. Para ello, se obtuvo el valor de $d_N$ de cada rama del árbol filogenético construido con un conjunto de 7 especies de mamíferos (tabla \ref{Tablalinajes}). Todos los linajes sin excepción mostraron un valor mayor de $d_N$ en el caso de los residuos codificados por mtDNA en contacto con subunidades codificadas por nDNA, en comparación con los residuos que contactan con subunidades codificadas por mtDNA.
+
+% Tabla SigmadN
+\begin{table}[!hbt]
+\centering
+\begin{threeparttable}
+	\caption{\label{TablaSigmadN} \small{Tasas de sustituciones no sinónimas (${\Sigma}d_N$)}}
+	\begin{tabular}{c c c c c}
+	& \multicolumn{4}{ c }{\textbf{${\Sigma}d_N$}}\\
+	\cmidrule[1pt]{2-5}
+	& \bf{ABC}
+	& \bf{A}
+	& \bf{B}
+	& \bf{C}
+	\\
+	\midrule
+	\textbf{No\ Contacto\ Expuesto}
+	& 5954 $\pm$ 10
+	& 2901 $\pm$ 9
+	& 10605 $\pm$ 104
+	& 8404 $\pm$ 50\vspace{0.3cm}
+	\\
+	\textbf{Contacto\ mt-mt}
+	& 2508 $\pm$ 7
+	& 939 $\pm$ 5
+	& 3034 $\pm$ 27
+	& 5820 $\pm$ 83\vspace{0.3cm}
+	\\
+	\textbf{Contacto\ mt-nu}
+	& 7050 $\pm$ 15
+	& 7603 $\pm$ 40
+	& 7129 $\pm$ 56
+	& 6450 $\pm$ 44\vspace{0.3cm}
+	\\
+	\textbf{No\ Contacto\ Enterrado}
+	& 1968 $\pm$ 3
+	& 1252 $\pm$ 4
+	& 5586 $\pm$ 70
+	& 1230 $\pm$ 14
+	\\
+	\bottomrule
+	\end{tabular}
+	\begin{tablenotes}
+\item{\small{Cada valor de esta tabla fue calculado como el sumatorio de los valores de las tasas de sustituciones no sinónimas por sitio no sinónimo ($d_N$) de cada par de secuencias de cada alineamiento. Los datos se expresan como media $\pm$ desviación típica.}}% Pie de tabla
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+% Fin de tabla sigmadN
+Estos resultados, en conjunto, sugieren que aquellos residuos codificados por mtDNA, en contacto con residuos codificados por el mismo genoma, están sujetos a mayores constricciones que aquellos implicados en interacciones con subunidades codificadas por nDNA. Además, este comportamiento parece estar presente en la mayoría de los linajes de mamíferos (Tabla \ref{Tablalinajes}).
+
+% Tabla de linages
+\begin{table}[!ht]
+\centering
+\begin{threeparttable}
+	\caption{\label{Tablalinajes} \small{Patrón de sustituciones no sinónimas en las subunidades del complejo IV en distintos linajes de mamíferos.}}
+	\begin{tabular}{>{\centering\arraybackslash}m{1cm} | >{\centering\arraybackslash}m{1.5cm} >{\centering\arraybackslash}m{1.5cm} >{\centering\arraybackslash}m{1.5cm} >{\centering\arraybackslash}m{2.6cm} | >{\centering\arraybackslash\columncolor[gray]{0.9}}m{1.5cm} >{\centering\arraybackslash\columncolor[gray]{0.9}}m{2.5cm} }
+	\multicolumn{7}{ c }{\includegraphics[width=1\textwidth]{C3/Figuras/Figura3/Fig3.pdf}\vspace{0.2cm}} \\
+	& \multicolumn{4}{ c |}{\textbf{mtDNA}}
+	& \multicolumn{2}{ >{\columncolor[gray]{0.9}}c }{\textbf{nDNA}} \\
+	\midrule[1pt]
+	Rama
+	& Contacto mt-mt
+	& Contacto mt-nu
+	& Contacto
+	& No Contacto Expuesto
+	& Contacto
+	& No Contacto Expuesto \\
+	\midrule
+	
+	1
+	& 0.006
+	& 0.033
+	& 0.026
+	& 0.076
+	& 0.014
+	& 0.044 \\
+	
+	2
+	& 0.006
+	& 0.046
+	& 0.035
+	& 0.037
+	& 0.011
+	& 0.030 \\
+	
+	3
+	& 0.003
+	& 0.029
+	& 0.021
+	& 0.034
+	& 0.014
+	& 0.028 \\
+	
+	4
+	& 0.006
+	& 0.046
+	& 0.033
+	& 0.090
+	& 0.021
+	& 0.028 \\
+	
+	5
+	& 0.005
+	& 0.039
+	& 0.029
+	& 0.036
+	& 0.011
+	& 0.015 \\
+	
+	6
+	& 0.003
+	& 0.020
+	& 0.015
+	& 0.034
+	& 0.012
+	& 0.389 \\
+	
+	7
+	& 0.005
+	& 0.036
+	& 0.029
+	& 0.072
+	& 0.017
+	& 0.046 \\
+	
+	8
+	& 0.005
+	& 0.038
+	& 0.027
+	& 0.068
+	& 0.017
+	& 0.035 \\
+	
+	9
+	& 0.000
+	& 0.016
+	& 0.008
+	& 0.058
+	& 0.011
+	& 0.032 \\
+	
+	10
+	& 0.003
+	& 0.020
+	& 0.011
+	& 0.000
+	& 0.002
+	& 0.005 \\
+	
+	11
+	& 0.006
+	& 0.008
+	& 0.011
+	& 0.000
+	& 0.010
+	& 0.021 \\
+	
+	12
+	& 0.006
+	& 0.062
+	& 0.044
+	& 0.119
+	& 0.034
+	& 0.064 \\
+	\bottomrule
+	\end{tabular}
+	\begin{tablenotes}
+\item{\small{Se construyó el árbol filogenético para 7 especies de mamíferos para las que se disponía de las secuencias genéticas de los 13 genes que codifican para el complejo citocromo c oxidasa (\textit{Bos taurus}, \textit{Sus scrofa}, \textit{Equus caballus}, \textit{Ailuropoda melanoleuca}, \textit{Mus musculus}, \textit{Rattus norvegicus} y \textit{Cavia porcellus}), usando \textit{Danio rerio} como grupo externo. En la tabla, se muestra el número de sustituciones no sinónimas por sitio no sinónimo para cada uno de los grupos de residuos indicados en la cabecera.}}% Pie de tabla
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+% Fin de tabla de linages
+
+\subsection{Tasas de interacción de subunidades codificadas por mtDNA}
+
+A partir de los valores de ${\Sigma}d_N$, obtenidos para cada categoría de residuos (tabla \ref{TablaSigmadN}), se calcularon los valores de las tasas de interacción (tabla \ref{Tabla3.1}). Éstos indicaron que, en el caso de las cadenas B (COX 2) y C (COX 3), los aminoácidos en contacto con otros codificados por nDNA, están más constreñidos que los residuos libres y expuestos. Sin embargo, para la cadena A (COX 1) se obtuvo un valor de R$_{A_{Contacto\ mt-nu}, A_{No\ Contacto\ Expuesto}}$ de 2.3 $\pm$ 10$^{-3}$. Esto indica que el hecho de que el resultado de R$_{ABC_{Contacto\ mt-nu}, ABC_{No\ Contacto\ Expuesto}}$ sea mayor que uno, se debe en gran medida al excepcional comportamiento evolutivo de COX 1. Por otro lado, al comparar las tasas evolutivas de las interacciones intragenómicas (entre residuos codificados por el mismo genoma) e intergenómicas (entre residuos codificados por distinto genoma), se observa que los aminoácidos codificados por mtDNA que están en contacto con otros codificados también por mtDNA, se encuentran más constreñidos que aquellos que interaccionan con subunidades codificadas por nDNA, salvo en COX 3, cuyo valor de R$_{C_{Contacto\ mt-nu}, C_{Contacto\ mt-mt)}}$, resultó estar en torno a la unidad.
+
+% Tabla 1 
+\begin{table}[!hbt]
+\centering
+\begin{threeparttable}
+	\caption{\label{Tabla3.1} \small{Tasas de interacción de las subunidades codificadas por mtDNA.}}
+	\begin{tabular}{c c c c c}
+	& \multicolumn{4}{ c }{\bf{${R_{1,2}}^{\S}$}}\\
+	\cmidrule[1pt]{2-5}
+	\bf{} 
+	& \bf{ABC}
+	& \bf{A}
+	& \bf{B}
+	& \bf{C}
+	\\
+	\midrule
+	\bf{$\frac{Contacto\ mt-nu}{No\ Contacto\ Expuesto}$}
+	& 1.1 $\pm\ 3\e{-4}$
+	& 2.3 $\pm\ 10^{-3}$
+	& 0.7 $\pm\ 5\e{-4}$
+	& 0.7 $\pm\ 5\e{-4}$\vspace{0.3cm}
+	\\
+	\bf{$\frac{Contacto\ mt-mt}{No\ Contacto\ Expuesto}$}
+	& 0.4 $\pm\ 3\e{-4}$
+	& 0.3 $\pm\ 6\e{-4}$
+	& 0.3 $\pm\ 3\e{-4}$
+	& 0.7 $\pm\ 10^{-4}$\vspace{0.3cm}
+	\\
+	\bf{$\frac{Contacto}{No\ Contacto\ Expuesto}$}
+	& 0.8 $\pm\ 2\e{-4}$
+	& 1.4 $\pm\ 5\e{-4}$
+	& 0.5 $\pm\ 3\e{-4}$
+	& 0.7 $\pm\ 4\e{-4}$\vspace{0.3cm}
+	\\
+	\bf{$\frac{Contacto\ mt-nu}{Contacto\ mt-mt}$}
+	& 2.6 $\pm\ 2\e{-3}$
+	& 7.2 $\pm$ 0.014
+	& 2.4 $\pm\ 2\e{-3}$
+	& 1.0 $\pm\ 10^{-3}$
+	\\
+	\bottomrule
+	\end{tabular}
+	\begin{tablenotes}
+\item{\small{$^{\S}$ La tasa de interacción, \textit{R}$_{1,2}$, es el cociente $\frac{{\Sigma}d_{N_1}}{{\Sigma}d_{N_2}}$, siendo los grupos 1 y 2 los indicados en el numerador y el denominador, respectivamente, en las fracciones de la primera columna.}}% Pie de tabla
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+% Fin de tabla 1
+
+Como se observa en la tabla \ref{Tabla3.1}, el valor de $R_{ABC_{Contacto\ mt-nu},\ ABC_{No\ Contacto\ Expuesto}}$ es notablemente menor que el valor de $R_{ABC_{Contacto\ mt-nu},\ {(ABC_{Contacto\ mt-nu})}^c}$, obtenido mediante el modelo de Schmidt (1.1 $\pm\ 3\e{-4}$ y 1.8 $\pm\ 4\e{-4}$, respectivamente), dejando en evidencia el efecto de la exclusión de los residuos enterrados y los implicados en interacciones con cadenas de origen genético mitocondrial.
+
+\subsection{La estabilidad termodinámica no explica las diferencias entre el comportamiento evolutivo de los residuos en contacto con cadenas mitocondriales y nucleares}
+
+Dadas las diferencias observadas en el comportamiento evolutivo de los residuos que contactan con subunidades codificadas por mtDNA, y los que contactan con subunidades codificadas por nDNA, podrían existir diferencias en la contribución de estos conjuntos a la estabilidad termodinámica del complejo, de modo que pudieran explicar este comportamiento. Para ensayar esta hipótesis, se realizó un \texttt{alascan} de la misma forma en la que se procedió en el capítulo anterior (apartado \ref{apartado:ddg2}) y se analizaron estadísticamente los resultados de ${\Delta}{\Delta}G$ correspondientes a los residuos pertenecientes a los distintos grupos (tabla \ref{Tabla3.2}). Los cambios menos desestabilizadores fueron los del grupo de los residuos ``No Contacto Expuesto''. Por otra parte, los residuos ``Contacto mt-nu'' fueron mucho menos tolerantes a los cambios que cualquier otra categoría. Por lo tanto, el alto grado de conservación observado en los residuos ``Contacto mt-mt'', no está explicado por la estabilidad termodinámica, lo que sugiere que hay otros aspectos  estructurales o funcionales que deben explicar estas diferencias.
+
+% Tabla 2
+\begin{table}[!hbt]
+\centering
+\begin{threeparttable}
+	\caption{\label{Tabla3.2} \small{Cambios en la estabilidad termodinámica.}}
+	\begin{tabular}{c c c c c}
+	\cmidrule[1pt]{2-5}
+	\bf{}
+	& \multicolumn{4}{ c }{\bf{$\Delta\Delta$G (kJ/mol)}}\\
+	\cmidrule[1pt]{2-5}
+	\bf{} 
+	& \bf{ABC}
+	& \bf{A}
+	& \bf{B}
+	& \bf{C}
+	\\
+	\midrule
+	\multirow{2}{*}{\bf{No\ Contacto\ Expuesto}}
+	& 1.41 $\pm$ 1.51 
+	& 1.64 $\pm$ 1.69 
+	& 1.20 $\pm$ 1.09 
+	& 1.16 $\pm$ 1.38
+	\\
+	& (\textbf{\textdagger},\textbf{\S\S})
+	& (\textbf{\textdagger})
+	& (\textbf{\textdagger},\textbf{\S\S})
+	& (\textbf{\S}) \vspace{0.3cm}
+	\\
+	\multirow{2}{*}{\bf{Contacto\ mt-mt}}
+	& 1.78 $\pm$ 1.97
+	& 1.98 $\pm$ 1.65
+	& 1.92 $\pm$ 2.61
+	& 1.06 $\pm$ 1.52\vspace{0.3cm}
+	\\
+	& (\textbf{*})
+	&
+	& 
+	& (\textbf{\S}) \vspace{0.3cm}
+	\\
+	\multirow{2}{*}{\bf{Contacto\ mt-nu}}
+	& 1.92 $\pm$ 1.60
+	& 2.03 $\pm$ 1.55
+	& 1.99 $\pm$ 1.47
+	& 1.69 $\pm$ 1.73
+	\\
+	\bf{}
+	& (\textbf{**})
+	& (\textbf{*})
+	& (\textbf{**})
+	& (\textbf{*},\bf{\textdagger}) \vspace{0.3cm}
+	\\
+	\bottomrule
+	\end{tabular}
+	\begin{tablenotes}
+\item{\small{Cada dato se expresa como media $\pm$ desviación típica}}
+\item{\small{El número de residuos ``No Contacto Expuesto'' de las cadenas A, B y C fue de 144, 56 y 92, respectivamente.}}
+\item{\small{El número de residuos ``Contacto mt-mt'' de las cadenas A, B y C fue de 95, 54 y 37, respectivamente.}}
+\item{\small{El número de residuos ``Contacto mt-nu'' de las cadenas A, B y C fue de 120, 74 y 82, respectivamente.}}
+\item{\small{* Significativamente distinto de ``No Contacto Expuesto'', (*) $p$ $<$ 0.05, (**) $p$ $<$ 0.0005.}}
+\item{\small{\textdagger\ Significativamente distinto de ``Contacto mt-mt'', (\textdagger) $p$ $<$ 0.05, (\textdagger\textdagger) $p$ $<$ 0.0005.}}
+\item{\small{\S\ Significativamente distinto de ``Contacto mt-nu'', (\S) $p$ $<$ 0.05, (\S\S) $p$ $<$ 0.0005.}}
+\end{tablenotes}% Pie de tabla
+\end{threeparttable}
+\end{table}
+% Fin de tabla 2
+
+
+\subsection{Los residuos expuestos y libres de COX 1 se encuentran excepcionalmente conservados}
+
+Según las tasas de interacción mostradas en la tabla \ref{Tabla3.2},  los residuos en contacto están, en general, más conservados que aquellos que están expuestos y libres. Sin embargo, COX 1 es la excepción en estos resultados. Mientas que para las subunidades COX 2 y COX 3, el valor de la tasa de interacción es significativamente menor que 1, para COX 1 es significativamente mayor a 1 (1.4 $\pm$ 5\e{-4}). Este resultado puede ser interpretado de dos formas: por un lado, puede ser debido a un valor alto de la tasa de sustituciones no sinónimas de los residuos en contacto (el numerador en la ecuación \ref{ec3.1}), lo cual sería un argumento a favor de la ``hipótesis optimizadora'' de Schmidt, y por el otro, este valor puede ser debido a un valor muy bajo en la tasa de sustituciones no sinónimas de los residuos libres y expuestos (el denominador). Para abordar esta cuestión, se representaron gráficamente los valores de ${\Sigma}d_N$ de cada conjunto de cada subunidad (figura \ref{Fig3.4}). Se observa que los cambios en COX 1 están mucho más constreñidos que en el resto de las subunidades, sobretodo en el caso de los aminoácidos expuestos y libres. Estos resultados indican claramente que las tasas de interacción mayores que 1 en el caso de COX 1, se deben a la excepcional conservación de los residuos libres y expuestos, y no ofrecen evidencias de un proceso evolutivo de optimización de contactos.
+
+% Figura 4 del paper 3
+\begin{figure}
+\centering
+\includegraphics[width=0.7\textwidth]{C3/Figuras/Figura4/Fig4.pdf}
+\caption{\small{Los residuos libres y expuestos de COX 1 están excepcionalmente conservados. En la figura se representa el valor de la tasa de sustituciones sinónimas (${\Sigma}d_N$) de cada uno de los subconjuntos de residuos construidos a partir de las cadenas codificadas por mtDNA. El valor que toma el subconjunto ``No Contacto Expuesto'' de COX 1 está muy por debajo del observado en las otras dos cadenas procedentes del genoma mitocondrial.}}
+\label{Fig3.4}
+\end{figure}
+% Fin de figura 4 del paper 3
+
+La simple comparación de los valores de ${\Sigma}d_N$ de los conjuntos ``No Contacto Expuesto'' entre las tres subunidades COX 1, COX 2 y COX 3, mostrada en la figura \ref{Fig3.4}, deja una evidencia sobre la particular conservación de este grupo de residuos de COX 1. No obstante, cabe preguntarse si este conjunto está significativamente más conservado que el resto de los residuos de la misma subunidad o es, simplemente, un reflejo de la baja variabilidad de COX 1 en su totalidad. Para abordar esta cuestión, realizamos un ensayo basado en un muestreo aleatorio\interfootnotelinepenalty=10000\footnote{La expresión <<\emph{muestreo aleatorio}>> es una traducción adaptada del término estadístico <<\emph{bootstrapping}>>.}. Esto es, para cada cadena codificada por mtDNA, se seleccionaron aleatoriamente del correspondiente alineamiento múltiple, un número de nucleótidos al azar igual al número de nucleótidos que codifican para los residuos pertenecientes al grupo de ``No Contacto Expuesto''. Posteriormente, se calculó el valor de ${\Sigma}d_N$ para este conjunto aleatorio. Este proceso se repitió $10^4$ veces por cada subunidad con el fin de construir una distribución aleatoria empírica, la cual se usó para contrastar los valores de ${\Sigma}d_N$ del conjunto de residuos libres y expuestos. Tal y cómo se observa en la figura \ref{Fig3.5}, los residuos ``No Contacto Expuesto'' de las subunidades COX 2 y COX 3 son los más variables ($p =\ $0.003 y 0.045, respectivamente), mientras que ocurre lo contrario en los residuos de ``No Contacto Expuesto'' de COX 1, los cuales representan el grupo de residuos más conservados de esta subunidad ($p =\ $0.064).
+
+ % Figura 5 del paper 3
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{C3/Figuras/Figura5/Fig5.pdf}
+\caption{\small{El comportamiento evolutivo del conjunto de residuos ``No Contacto Expuesto'' de COX 1 difiere del mostrado por COX 2 y COX 3. Se construyó una distribución aleatoria empírica para cada subunidad (véase texto para más detalles) y se usaron para contrastar el valor de ${\Sigma}d_N$ del conjunto de residuos libres y expuestos de cada cadena codificada por mtDNA, los cuales se muestran mediante flechas azules.}}
+\label{Fig3.5}
+\end{figure}
+% Fin de figura 5 del paper 3
+
+\subsection{Existe correlación entre ${\Delta\Delta}G$ y ${\Sigma}d_N$}
+
+Con el fin de aislar las posibles fuerzas que gobiernan la excepcional conservación del grupo de residuos expuestos y libres de COX 1, se llevó a cabo una prueba de correlación entre los resultados obtenidos en las simulaciones de mutagénesis con FoldX (\texttt{alascan}), y los valores de ${\Sigma}d_N$ para cada uno de los grupos ``Contacto'' y ``No Contacto Expuesto'' de cada subunidad codificada por mtDNA. La gráfica de dispersión ${\Sigma}d_N$ \textit{versus} ${\Delta}{\Delta}G$ se muestra en la figura \ref{Fig3.6}. Se obtuvo una correlación negativa estadísticamente significativa entre estas dos variables ($p <$ 0.035). Estos resultados son coherentes con los del capítulo \ref{cap:surfbur}, en el que ya se observó que los residuos más desestabilizadores son también los que están más constreñidos. No obstante, no se puede afirmar que el alto grado de conservación de los residuos ``No Contacto Expuesto'' de COX 1 sea debido a su implicación en la estabilidad del complejo, pues tal y como se observa en la figura \ref{Fig3.6}, el valor correspondiente es un punto díscolo, con un valor de ${\Sigma}d_N$ mucho menor de lo esperado.
+
+% Figura 6 del paper 3
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{C3/Figuras/Figura6/Fig6.pdf}
+\caption{\small{Los residuos libres y expuestos de COX 1 están mucho más conservados de lo esperado por el potencial efecto desestabilizador en el complejo. Para cada subunidad codificada por mtDNA, se tomaron los valores de ${\Sigma}d_N$ de los dos subconjuntos de residuos ``Contacto'' (C) y ``No Contacto Expuesto'' (NC) y se representaron frente a los valores de ${\Delta}{\Delta}G$ de los mismos subconjuntos. Se obtuvo una correlación negativa ($n = 6$, $r = -$0.774, $p = $ 0.035) que mejoraba considerablemente cuando los datos correspondientes a COX 1-NC se excluían del análisis ($n = 5$, $r = -$0.890, $p = $ 0.021). El diagrama de sectores, inserto en la gráfica, representa la proporción de residuos funcionales descritos en los dos subconjuntos procedentes de COX 1.}}
+\label{Fig3.6}
+\end{figure}
+% Fin de figura 6 del paper 3
+
+\subsection{Relevancia de los residuos funcionales de COX 1 en su dinámica evolutiva}
+
+Después de realizar una descripción de los parámetros estructurales de COX 1, se han descartado posibles explicaciones del comportamiento evolutivo anómalo de los residuos expuestos y libres pertenecientes a esta subunidad. Seguidamente, basándonos en que, generalmente, los residuos funcionales están especialmente conservados en la evolución \cite{Glaser:2003id}, planteamos la hipótesis de que los residuos funcionales de COX 1 podrían estar más representados en aquel conjunto que presenta una baja tasa de cambios no sinónimos, es decir, el grupo de los residuos libres y expuestos.
+
+El diagrama de sectores incluido en la figura \ref{Fig3.6} muestra la proporción en cada grupo de todos los residuos descritos en \textit{UniProt} (\url{http://www.uniprot.org/}) como ``importantes en la función'' de COX 1. Como ejemplos de estos residuos están los aminoácidos implicados en la unión con el grupo hemo, Cu$^{++}$ o Mg$^{++}$, el bombeo de protones y la transferencia de electrones \cite{Michel:1998cp,Yoshikawa:1998kx}. Se observa que la mayoría (76.4\%) pertenecen al grupo de ``No Contacto Expuesto''.
+
+\subsection{Tasas de interacción de las cadenas codificadas por nDNA}
+
+Llevando a cabo el mismo proceso que con las cadenas codificadas por mtDNA, se obtuvieron las tasas de interacción $R_{1,2}$ entre los residuos en contacto y los expuestos y libres de las cadenas codificadas por nDNA. En la figura \ref{Fig3.7} se representan los resultados para cada una de las cadenas con origen en el genoma nuclear. En la mayoría de los casos se obtuvieron valores menores a 1, con la salvedad de la cadena E (COX 5A), cuyo resultado fue mayor a 1.7, lo que indica una alta conservación de los residuos en contacto de esta subunidad.  Sin embargo, debido al pequeño tamaño de estas subunidades (entre 46 y 148 residuos) y al menor número de secuencias disponibles (entre 14 y 30 especies), los resultados tan solo pueden aportar una idea cualitativa de su tendencia, puesto que quedan lejos de ser estadísticamente significativos. Ante tal dificultad, se realizaron otros análisis no paramétricos.
+
+% Figura 7 del paper 3
+\begin{sidewaysfigure}
+\centering
+\includegraphics[width=0.8\textwidth]{C3/Figuras/Figura7/Fig7.pdf}
+\caption{\small{COX5A es la única subunidad codificada por nDNA que presenta una tasa de interacción $R_{Contacto, No\ Contacto\ Expuesto}$ superior a la unidad. En la gráfica (a), se representan los valores de las tasas de interacción y la estructura tridimensional de cada subunidad codificada por nDNA. Cada residuo de cada estructura ha sido representado de color magenta si está en contacto con otro residuo y en verde en caso contrario. En la imagen (b), se representa la estructura 3D de las 10 subunidades formando parte del complejo IV. El color de éstas es proporcional a porcentaje de identidad de secuencia en un alineamiento construido con aquellas especies para las que se dispone de todas las secuencias (\textit{Ailuropoda melanoleuca}, \textit{Bos taurus}, \textit{Cavia porcellus},\textit{Equus caballus}, \textit{Mus musculus}, \textit{Rattus norvegicus}, \textit{Sus scrofa}).}}
+\label{Fig3.7}
+\end{sidewaysfigure}
+% Fin de figura 7 del paper 3
+
+Para cada subunidad, se etiquetó cada residuo como ``variante'' o ``invariante'', según su conservación en su correspondiente alineamiento múltiple (tabla \ref{Tabla3.6}. Por otro lado, el mismo residuo también se clasificó como ``Contacto'' o ``No Contacto Expuesto''. Así, se procesó la proporción de residuos variantes, expuestos y libres (\textit{p}$_0$) frente a la de variantes en contacto (\textit{p}$_1$). Las diferencias entre estos valores ($d = p_0 - p_1$) deberían mostrar una distribución simétrica con media en 0 de acuerdo con la siguiente hipótesis nula: la variabilidad de los residuos es independiente de su rol en la interacción con otras subunidades. Para ensayar esta hipótesis se llevó a cabo una prueba de rangos con signo de Wilcoxon, mediante la que se rechazó \textit{H}$_0$ con \textit{p} $<$ 0.007. Así, se demuestra que la alta proporción de residuos variables pertenecientes al grupo ``No Contacto Expuesto'' no es debida al azar. En otras palabras, existe dependencia entre las características estructurales llevadas a estudio y la tasa evolutiva.
+
+% Tabla 6
+\begin{table}[!hbt]
+\centering
+\begin{threeparttable}
+	\caption{\label{Tabla3.6} \small{Relación entre la variabilidad de los residuos y su implicación en contactos con otras subunidades.}}
+	\begin{tabular}{>{\arraybackslash}m{2.1cm} >{\centering\arraybackslash}m{1.9cm} >{\centering\arraybackslash}m{1.9cm} >{\centering\arraybackslash}m{1.9cm} >{\centering\arraybackslash}m{1.9cm} >{\arraybackslash}m{1.9cm}}
+	\toprule
+	\textbf{Subunidad}
+	& \textbf{V-NCE}
+	& \textbf{I-NCE}
+	& \textbf{V-C}
+	& \textbf{I-C}
+	& \textbf{\textit{p-valor}}
+	\\
+	\midrule
+	COX 4
+	& 22
+	& 20
+	& 42
+	& 52
+	& 0.259
+	\\
+	COX 5A
+	& 3
+	& 36
+	& 6
+	& 37
+	& 0.293
+	\\
+	COX 5B
+	& 19
+	& 24
+	& 15
+	& 37
+	& 0.091
+	\\
+	COX 6A2
+	& 16
+	& 20
+	& 21
+	& 27
+	& 0.561
+	\\
+	COX 6B1
+	& 20
+	& 6
+	& 24
+	& 23
+	& 0.027*
+	\\
+	COX 6C
+	& 19
+	& 8
+	& 9
+	& 22
+	& 0.002
+	\\
+	COX 7A1
+	& 19
+	& 8
+	& 9
+	& 22
+	& 0.002*
+	\\
+	COX 7B
+	& 11
+	& 6
+	& 9
+	& 23
+	& 0.015*
+	\\
+	COX 7C
+	& 7
+	& 6
+	& 8
+	& 26
+	& 0.052*
+	\\
+	COX 8B
+	& 10
+	& 4
+	& 17
+	& 12
+	& 0.320
+	\\
+	\bottomrule
+	\end{tabular}
+	\begin{tablenotes}
+\item{\small{Para cada subunidad de COX codificada por nDNA, se construyeron cuatro grupos de residuos atendiendo a la combinación de dos propiedades. Por un lado, se agruparon en ``variantes'' (V) o `ìnvariantes'' (I) dependiendo de si el residuo en cuestión varía o no en el alineamiento múltiple. Y por otro lado, se clasificó cada residuo atendiendo al grupo de residuos de superficie al que pertenece: ``Contacto'' (C) o ``No Contacto Expuesto'' (NCE). Para examinar la significatividad de la asociación entre estos dos criterios de agrupación, se llevó a cabo una prueba de Fisher. De esta forma, se calculó la probabilidad de observar por azar unos valores tan extremos o más extremos que los computados en las columnas 2-4, bajo las condiciones de la hipótesis nula (independencia entre los criterios de clasificación). Éstos valores se muestran en la columna 5 (\textit{p-valor}).}}
+\item{\small{* \textit{p-valor} suficientemente bajo para rechazar la hipótesis nula y concluir que los residuos en contacto tienden a ser invariantes.}}
+\end{tablenotes}% Pie de tabla
+\end{threeparttable}
+\end{table}
+% Fin de tabla 6
+
+No obstante, aunque los resultados de la prueba de Wilcoxon nos permitieron concluir que los residuos en contacto están más conservados en general, no sirve para detectar aquellas subunidades que destaquen por su comportamiento evolutivo. Para ello, se construyeron tablas de contingencia de 2 x 2 para cada subunidad, enfrentando los dos criterios de clasificación explicados anteriormente (variabilidad y rol en la interacción). Bajo la hipótesis nula de que ambos criterios son independientes se llevó a cabo una prueba exacta de Fisher. Sólo se pudo rechazar \textit{H}$_0$ con $p <$ 0.055 para las subunidades COX 6C, 7A1, 7B y 7C (tabla \ref{Tabla3.6}), las cuales presentaban los mayores valores de \textit{d}, es decir, las subunidades que presentan mayores diferencias en la variabilidad de los residuos en contacto con respecto a los libres y expuestos.
+
+\subsection{Correlación entre la edad de las proteínas y el valor de $d$}
+
+Con el objetivo de averiguar si las diferencias en la dinámica evolutiva entre los residuos implicados en contacto y los residuos libres están relacionadas con la edad de las proteínas, se llevó a cabo un sencillo análisis sobre estas variables. Las diferencias entre las proporciones de residuos variantes entre ``Contacto'' y ``No Contacto Expuesto'' de aquellas subunidades con valores significativamente mayores que cero, fueron representadas en una gráfica de dispersión frente a la edad de la correspondiente proteína \cite{Capra:2012bt}. Se obtuvo una correlación negativa ($r = -$0.946, $p =$ 0.027) estadísticamente significativa (figura \ref{Fig3.8}). Estos resultados sugieren que las diferencias en la capacidad evolutiva entre residuos en contacto y residuos expuestos y libres tiende a ser máxima en proteínas más jóvenes.
+
+% Figura 7 del paper 3
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{C3/Figuras/Figura8/Fig8.pdf}
+\caption{\small{Las subunidades más jóvenes presentan mayores diferencias en capacidad evolutiva entre residuos en contacto y libres. Para cada subunidad se computó la diferencia en la proporción de residuos clasificados como ``variantes'' e `ìnvariantes''. De las subunidades codificadas por nDNA, sólo COX 6C, 7A1, 7B y 7C mostraron valores de $d$ significativamente mayores que cero. Al computar la edad de la proteína frente a los valores de $d$, se obtuvo una correlación negativa significativa.}}
+\label{Fig3.8}
+\end{figure}
+% Fin de figura 7 del paper 3
+
+\section{Discusión}
+
+Es esperable que las interacciones físicas entre proteínas influyan de algún modo en la dinámica evolutiva de éstas. Tras el origen evolutivo de la unión entre dos proteínas, las regiones implicadas en el contacto entre dos o más cadenas de un complejo heteromérico, como citocromo c oxidasa, se han ido coadaptando, ya sea hacia la mejora de sus funciones fisiológicas \cite{Schmidt:2005ub} o simplemente manteniendo su eficacia biológica ante mutaciones levemente deletéreas que han sido fijadas por deriva genética \cite{Osada:2011de}. Caracterizar la coevolución de las distintas regiones en contacto del complejo IV de la cadena respiratoria, ha sido de especial interés, puesto que es un escenario en el que se encuentran interacciones entre subunidades codificadas por dos genomas que difieren en múltiples aspectos evolutivos. Como hemos detallado a lo largo de este capítulo, Schmidt y colaboradores \cite*{Schmidt:2001ti}, construyeron un modelo mediante el que estudiaron las tasas evolutivas de los aminoácidos implicados en la unión de las distintas subunidades del complejo citocromo c oxidasa, teniendo en cuenta sobretodo, la procedencia genómica de cada cadena. A partir de sus resultados, anunciaron la ``hipótesis optimizadora'', que propone que los residuos codificados por mtDNA en contacto con otros codificados por nDNA evolucionan más deprisa que el resto de los aminoácidos codificados por el mismo genoma, favoreciendo la optimización de la unión \cite{Schmidt:2001ti}.
+
+A partir de las conclusiones alcanzadas en el capítulo \ref{cap:surfbur} de esta tesis, mediante la comparación de la evolución de los residuos expuestos frente a los enterrados de citocromo b y COX 1, surgieron dudas sobre la precisión del modelo de Schmidt y colaboradores \cite*{Schmidt:2001ti}. Dado que se encontraron diferencias significativas entre los residuos de superficie e interior (figura \ref{Fig5}), consideramos que sería apropiado en este contexto, añadir un nuevo criterio de clasificación de residuos al modelo original. De este modo, las tasas evolutivas que se compararon, se estimaron en conjuntos de aminoácidos en contacto y en conjuntos de aminoácidos libres y expuestos, excluyendo a los enterrados para evitar sesgos en la muestra. Adicionalmente, en el modelo aplicado en este trabajo, se tuvieron en cuenta los residuos que se encuentran en contacto con cadenas del mismo origen genómico (figura \ref{Fig3.2}).
+
+\subsection{Comparación de los dos modelos de cálculo de tasas de interacción}
+
+Los resultados obtenidos con el modelo de estudio propuesto en este trabajo, arroja múltiples evidencias en contra de la hipótesis optimizadora, y explican por qué los autores del modelo original \cite{Schmidt:2001ti} fallaron en la interpretación de sus resultados. Primero, la única subunidad con origen en el genoma mitocondrial, cuya tasa de interacción superó la unidad fue COX 1. El resto de las cadenas codificadas por mtDNA presentaron valores significativamente menores a 1 (tabla \ref{Tabla3.1}). Dado que en el modelo original no se tuvieron en cuenta las distintas subunidades de forma individual, sino que se hizo uso de un alineamiento producto de la concatenación de todas las subunidades del complejo, el excepcional comportamiento de COX 1 pasó desapercibido y produjo un sesgo en los resultados, el cual llevó una interpretación generalizada e incorrecta. Segundo, la exclusión de los residuos enterrados, así como aquellos que están implicados en contactos intragenómicos, redujo notablemente los valores de las tasas de interacción entre aminoácidos en contacto y los libres y expuestos para todos los casos (tabla \ref{Tabla3.1}). Esto indica que en el trabajo de Schmidt et al. \cite*{Schmidt:2001ti} se subestimaron los valores de ${\Sigma}d_N$ del conjunto de residuos que ocupaba el denominador en el cálculo de la tasa de interacción (ecuación \ref{ec3.1}) entre residuos en contacto y libres, puesto que no se tuvo en cuenta la elevada conservación de los residuos del interior. Por último, el valor de ${\Sigma}d_N$ de los residuos expuestos y libres de COX 1 es inusualmente bajo, tanto si se compara con los de COX 2 y COX 3 (figura \ref{Fig3.4}), como si se compara con el resto de residuos de la misma cadena (figura \ref{Fig3.5}). Esto indica que es más probable que la causa de la alta tasa de interacción de COX 1 sea debida a la elevada conservación de los residuos expuestos y libres, más que a una alta tasa de cambio de los residuos en contacto. Así pues, estos resultados contrastan firmemente con la idea de que existe un proceso evolutivo de optimización de contactos entre las subunidades codificadas por distintos genomas en el complejo IV de la cadena respiratoria.
+
+\subsection{¿Por qué los residuos expuestos y libres de COX 1 están tan conservados?}
+
+La contribución a la estabilidad y/o a la funcionalidad fueron las primeras variables que se consideraron como posibles causas que constriñen la evolución de los aminoácidos expuestos de COX 1. Por un lado, aunque se obtuvo una correlación negativa entre los cambios en la estabilidad y ${\Sigma}d_N$, este conjunto difería en gran medida de los resultados esperados por la regresión lineal (figura \ref{Fig3.6}), por lo que el mantenimiento de la estructura por parte de este conjunto no es una causa directa de su baja tasa de cambio. Con respecto a la implicación en la función de la proteína por parte de este grupo de aminoácidos, es cierto que se encuentra una mayor proporción de residuos implicados en la función del complejo (figura \ref{Fig3.6}). Sin embargo, no creemos que esta interpretación sea concluyente, puesto que no hay certeza de que este conjunto de residuos, descrito en la literatura, esté completo. No obstante, hay indicios de que estabilidad y funcionalidad influyen en la conservación de los residuos expuestos y libres de COX 1. Así, es muy probable que la explicación real se encuentre en una combinación de ambas variables.
+
+Otro asunto sobre el que se ha reflexionado, concerniente a los residuos expuestos y libres de COX 1, así como los conjuntos análogos en otras subunidades del complejo IV, es la formación de los llamados supercomplejos. Durante la pasada década, se han aportado evidencias experimentales de la existencia de una organización de la cadena respiratoria en un orden mayor de complejidad, conocida como \emph{respirosoma} \cite{Schagger:2000hx,AcinPerez:2008gh,Winge:2012wl}. En la misma línea, dos estudios recientes han publicado la estructura 3D del supercomplejo I1III2IV1, resuelta por crio-microscopía electrónica con una resolución de 19-22 \AA \cite{Althoff:2011wc,Dudkina:2011vr}. Estos modelos revelan algunos sitios donde complejos vecinos se encuentran suficientemente cercanos como para formar puentes salinos o enlaces de hidrógeno. Tres de estos sitios se encuentran entre los complejos III y IV, sin embargo, ningún residuo de COX 1 estaría implicado en estas uniones. Por otra parte, existen otras formas de supercomplejos tales como I1III2IV2, I1III2IV3 y I1III2IV4, descritas en mitocondrias de corazón bovino \cite{Schagger:2000hx}. Dado que no se dispone de la estructura tridimensional de estas formas de ensamblaje, la contribución de los residuos de COX 1 en el respirasoma no se puede resolver completamente, pero es importante tener en cuenta, que puede influir en la dinámica evolutiva de ciertas regiones del complejo.
+
+\subsection{Comportamiento diferencial entre interacciones jóvenes y antiguas}
+
+De todos los residuos expuestos, aquellos implicados en la interacción entre distintas cadenas codificadas por mtDNA son los más conservados. Además, la comparación entre los dos grupos de residuos en contacto, intra- e intergenómicos (tabla \ref{Tabla3.1}), sugiere que aquellos residuos codificados por el genoma mitocondrial, en contacto con residuos del mismo origen genómico, están sujetos a mayores constricciones que aquellos que están implicados en interacciones con subunidades codificadas por nDNA. Hasta donde sabemos, este es el primer estudio cuantitativo que da pie a tal conclusión, la cual se discute a continuación. En mamíferos, las tres subunidades codificadas por mtDNA forman el centro catalítico del complejo, mientras que las 10 subunidades codificadas por nDNA actúan como un caparazón alrededor del núcleo \cite{Soto:2012hg}. En procariotas, el complejo citocromo c oxidasa está reducido al núcleo catalítico, el cual parece tener un origen ancestral \cite{J:1994vc}. Por el contrario, las células eucariotas poseen genes nucleares que codifican para subunidades adicionales, cuyo número generalmente aumenta con la complejidad del organismo. Aunque ni el origen ni la función específica de estas cadenas no catalíticas está del todo revelado, parece ser que son significativamente más jóvenes que las proteínas que forman el núcleo \cite{J:1994vc,Das:2004id,Little:2010uo}. Por otra parte, se sabe que las proteínas jóvenes suelen estar sometidas a una selección purificadora más débil y evolucionan más rápido que las proteínas más antiguas \cite{Alba:2004bi,Vishnoi:2010vy}. Así, en este trabajo se propone, que si esta hipótesis es cierta para proteínas, también puede serlo para las interacciones. En otras palabras, es razonable asumir que para una proteína con una antigüedad determinada, aquellos residuos implicados en interacciones jóvenes evolucionan más rápido que aquellos implicados en interacciones antiguas. Esta hipótesis puede explicar las diferencias en las tasas evolutivas de los residuos en contacto con subunidades codificadas por nDNA y mtDNA (tabla \ref{Tabla3.1}). Aunque está fuera de los objetivos principales de este trabajo, sería interesante para el futuro, investigar si la relación entre el grado de selección y la edad de las interacciones, descrita aquí para las subunidades codificadas por el genoma mitocondrial del complejo IV,  se reproduce también en otras proteínas.
+
+Por otra parte, los cálculos de ${\Delta}{\Delta}G$ (tabla \ref{Tabla3.2}), indican que las diferencias evolutivas entre los contactos intra- e intergenómicos no puede ser explicada por la contribución de las uniones a la estabilidad termodinámica del complejo. Es posible que existan causas funcionales que estén detrás del alto grado de conservación de los residuos codificados por mtDNA en contacto con cadenas codificadas por el mismo genoma.
+
+\subsection{Comportamiento evolutivo de las subunidades codificadas por nDNA}
+
+Estudios anteriores han caracterizado la evolución de las subunidades del complejo IV codificadas por el genoma nuclear \cite{Schmidt:2001ti,Das:2004id,Uddin:2008gt,Osada:2011de}. Sin embargo muchas de las conclusiones alcanzadas en estos trabajos están, aparentemente, en conflicto. Por ejemplo, Schmidt y colaboradores sostienen que los residuos codificados por nDNA, en contacto con otras subunidades están sujetos a una fuerte selección purificadora \cite{Schmidt:2001ti}, mientras que Osada y Akashi llegaron a la conclusión de que hay indicios de selección positiva para estos residuos \cite{Osada:2011de}. Posiblemente, este conflicto pueda ser atribuible a diferencias en la metodología. De hecho, mientras los primeros autores usaron conjuntos de datos formados por residuos en contacto y libres, sin distinguir entre las distintas subunidades del complejo, los segundos usaron una técnica de detección de posiciones sometidas a selección positiva descrita previamente en la literatura \cite{Zhang:2005fj}. En nuestro trabajo, hemos abordado esta cuestión con un modelo que podría considerarse a medio camino entre los descritos previamente, ya que consiste en analizar cada cadena codificada por el genoma nuclear de forma individual, aplicando el mismo modelo que se ha usado para las subunidades codificadas por mtDNA.
+
+Los resultados representados en la figura \ref{Fig3.7} son, en líneas generales, coherentes con los obtenidos por Schmidt et al. \cite*{Schmidt:2001ti}, puesto que los residuos en contacto con otras cadenas evolucionan más lentamente que los libres y expuestos. Es cierto que, en este modelo, nos es potencialmente posible detectar subunidades que exhiben un comportamiento evolutivo particular con respecto al resto. Sin embargo, la escasez de datos de secuencias disponibles para estos genes, limitan la potencia estadística de nuestros resultados. Tan solo con respecto a las subunidades COX 6C, COX 7A1, COX 7B y COX 7C puede afirmarse de un modo significativo que existe un mayor número de residuos invariantes en las regiones en contacto con otras cadenas (tabla \ref{Tabla3.6}). Además, estas diferencias son más acusadas en proteínas más jóvenes (figura \ref{Fig3.8}).
+
+Una teoría propuesta recientemente, explica que la deriva genética de mamíferos, unida a bajos tamaños poblacionales, puede resultar en leves deficiencias estructurales que hacen a las proteínas más vulnerables a la desestabilización por el solvente, debido a la exposición de enlaces de hidrógeno. La formación de nuevas uniones proteína-proteína puede restaurar la estabilidad original \cite{Fernandez:2011go}. De acuerdo con esta hipótesis, los complejos heteroméricos presentes en mamíferos pudieron desarrollarse, no como respuesta adaptativa, sino como cambios compensatorios a favor de la estabilidad de la estructura y el mantenimiento la función ante cambios nocivos no deletéreos. Una vez que las nuevas proteínas se encuentran formando parte del complejo, puede darse un aumento de la selección purificadora sobre aquellos residuos que se encuentran en contacto, a diferencia de los residuos libres. Posteriormente, las subunidades recién añadidas pueden ganar funciones que serán de nuevo sometidas a presión selectiva, suavizando entonces las diferencias entre residuos en contacto y libres. 
+
+% Figura reflexion
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{C3/Figuras/FiguraFinal/FigEnd.pdf}
+\caption{\small{Relación de la tasa de interacción y la historia evolutiva de una subunidad codificada por nDNA. Al principio, una proteína que aún no forma parte del complejo, experimenta la misma magnitud de selección purificadora en toda su superficie, dando lugar a un valor de $R$ cercano a la unidad. Una vez que se establece el contacto, los residuos implicados se ven sometidos a una mayor selección negativa, por lo que el valor de $R$ disminuye. En el caso de que el resto de los aminoácidos de la superficie adquieran una nueva función que suponga una mejora adaptativa, ésta región tendería a conservarse, por lo que el valor de $R$ aumentaría de nuevo pudiendo incluso superar la unidad.}}
+\label{FigEnd}
+\end{figure}
+% Fin de figura reflexión 
+
+En un esfuerzo de presentar gráficamente esta propuesta, se ha representado en la figura \ref{FigEnd} nuestra reflexión sobre la historia evolutiva de una proteína que forma parte de un complejo. Suponemos una proteína que no forma parte del complejo y que no tiene ninguna función. Tras el evento que supone el origen de la unión de dicha proteína al complejo proteico, y asumiendo que supone una mejora sobre la eficacia biológica del organismo, un grupo de residuos, implicados en dicho contacto, se verán sometidos a una selección purificadora creciente y, por tanto, la tasa de interacción disminuirá reflejando las diferencias en la dinámica evolutiva de la región de contacto y el resto de la superficie. Dado que la tasa de cambio de los residuos libres y expuestos es suficiente alta como para admitir como probable la adquisición de nuevas funciones, en el caso de que ocurra dicho evento, y suponga una mejora adaptativa, esta región se verá, del mismo modo que los residuos en contacto, sometida a selección purificadora, diluyendo las diferencias en la evolución de las distintas regiones de la proteína. El valor de $R$, dependerá entonces de la importancia del contacto interproteico y la función.
+
+Se desconoce que las subunidades del complejo IV, codificadas por nDNA, desempeñen una función distinta a la propuesta por Fernandez y Lynch \cite*{Fernandez:2011go}, que sugiere que el reclutamiento de nuevas subunidades por parte de un complejo proteico se debe, en primera instancia, a una mejora en la estabilidad del mismo. No obstante, a la subunidad COX 5A se le ha atribuido una función como receptor de 3,5-diyodotironina, un ligando capaz de eliminar la inhibición alostérica de la respiración por ATP \cite{Arnold:1998fk}. Según nuestra propuesta, COX 5A habría experimentado ambos eventos marcados con flecha, y se encontraría en la fase más tardía representada en la figura \ref{FigEnd}. Por el contrario, el resto de las subunidades codificadas por nDNA, cuyo valor de $R$ es inferior a la unidad (figura \ref{Fig3.7}). estarían en el intervalo de tiempo entre el origen del contacto y la posible adquisición de una nueva función.
+
+\section{Conclusiones}
+\begin{enumerate}
+\item No existen evidencias de un fenómeno evolutivo que optimice las interacciones intermoleculares entre subunidades del complejo citocromo c oxidasa codificadas por distintos genomas (mtDNA y nDNA).
+\item La tasa de sustituciones no sinónimas por sitio no sinónimo (${\Sigma}d_N$) es mayor en el caso de los residuos contacto mt-nu con respecto a los residuos contacto mt-mt, es decir, la evolución de los primeros es más rápida que la de los segundos.
+\item La estabilidad termodinámica no explica el comportamiento evolutivo diferencial entre interacciones mt-mt y mt-nu.
+\item Los residuos expuestos de COX 1, que no están en contacto con otras subunidades, están extraordinariamente conservados.
+\item La estabilidad termodinámica correlaciona negativamente con la tasa evolutiva de los distintos conjuntos de residuos codificados por mtDNA, pero no explica, al menos totalmente, la excepcional conservación de los residuos No Contacto Expuestos de COX 1.
+\item Se encuentran más residuos funcionales en el grupo de residuos No Contacto Expuesto de COX1 que en el grupo de residuos contacto. No obstante, no se dispone de suficiente potencia estadística para explicar la dinámica evolutiva del grupo de residuos ``No Contacto Expuesto'' mediante su funcionalidad.
+\item Los residuos en contacto con subunidades codificadas por nDNA tienden a estar más constreñidos que los residuos no contacto de la misma cadena, salvo en el caso de la subunidad COX 5A.
+\end{enumerate}

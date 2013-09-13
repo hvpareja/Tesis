@@ -1,0 +1,68 @@
+map_new map_cox4_c, gaussian, 1, cox4_C, 5; isosurface surf_cox4_c, map_cox4_c, 1.5
+map_new map_cox4_nc, gaussian, 1, cox4_NC, 5; isosurface surf_cox4_nc, map_cox4_nc, 1.5
+map_new map_cox5a_c, gaussian, 1, cox5A_C, 5; isosurface surf_cox5a_c, map_cox5a_c, 1.5;
+map_new map_cox5a_nc, gaussian, 1, cox5A_NC, 5; isosurface surf_cox5a_nc, map_cox5a_nc, 1.5;
+map_new map_cox5B_c, gaussian, 1, cox5B_C, 5; isosurface surf_cox5B_c, map_cox5B_c, 1.5;
+map_new map_cox5B_nc, gaussian, 1, cox5B_NC, 5; isosurface surf_cox5B_nc, map_cox5B_nc, 1.5;
+map_new map_cox6A2_c, gaussian, 1, cox6A2_C, 5; isosurface surf_cox6A2_c, map_cox6A2_c, 1.5;
+map_new map_cox6A2_nc, gaussian, 1, cox6A2_NC, 5; isosurface surf_cox6A2_nc, map_cox6A2_nc, 1.5;
+map_new map_cox6B1_c, gaussian, 1, cox6B1_C, 5; isosurface surf_cox6B1_c, map_cox6B1_c, 1.5;
+map_new map_cox6B1_nc, gaussian, 1, cox6B1_NC, 5; isosurface surf_cox6B1_nc, map_cox6B1_nc, 1.5;
+map_new map_cox6C_c, gaussian, 1, cox6C_C, 5; isosurface surf_cox6C_c, map_cox6C_c, 1.5;
+map_new map_cox6C_nc, gaussian, 1, cox6C_NC, 5; isosurface surf_cox6C_nc, map_cox6C_nc, 1.5;
+map_new map_cox7A1_c, gaussian, 1, cox7A1_C, 5; isosurface surf_cox7A1_c, map_cox7A1_c, 1.5;
+map_new map_cox7A1_nc, gaussian, 1, cox7A1_NC, 5; isosurface surf_cox7A1_nc, map_cox7A1_nc, 1.5;
+map_new map_cox7B_c, gaussian, 1, cox7B_C, 5; isosurface surf_cox7B_c, map_cox7B_c, 1.5;
+map_new map_cox7B_nc, gaussian, 1, cox7B_NC, 5; isosurface surf_cox7B_nc, map_cox7B_nc, 1.5;
+map_new map_cox7C_c, gaussian, 1, cox7C_C, 5; isosurface surf_cox7C_c, map_cox7C_c, 1.5;
+map_new map_cox7C_nc, gaussian, 1, cox7C_NC, 5; isosurface surf_cox7C_nc, map_cox7C_nc, 1.5;
+map_new map_cox8B_c, gaussian, 1, cox8B_C, 5; isosurface surf_cox8B_c, map_cox8B_c, 1.5;
+map_new map_cox8B_nc, gaussian, 1, cox8B_NC, 5; isosurface surf_cox8B_nc, map_cox8B_nc, 1.5;
+
+color magenta, surf_cox4_c;
+color green, surf_cox4_nc;
+color magenta,  surf_cox5a_c;
+color green,  surf_cox5a_nc;
+color magenta,  surf_cox5B_c;
+color green,  surf_cox5B_nc;
+color magenta,  surf_cox6A2_c;
+color green,  surf_cox6A2_nc;
+color magenta,  surf_cox6B1_c;
+color green,  surf_cox6B1_nc;
+color magenta,  surf_cox6C_c;
+color green,  surf_cox6C_nc;
+color magenta,  surf_cox7A1_c;
+color green,  surf_cox7A1_nc;
+color magenta,  surf_cox7B_c;
+color green,  surf_cox7B_nc;
+color magenta,  surf_cox7C_c;
+color green,  surf_cox7C_nc;
+color magenta,  surf_cox8B_c;
+color green,  surf_cox8B_nc;
+
+set_color uno, [0,0,255]
+set_color dos, [63,0,191]
+set_color tres, [127,0,127]
+set_color cuatro, [191,0,63]
+set_color cinco, [255,0,0]
+
+color tres, surf_cox4_c;
+color tres, surf_cox4_nc;
+color cinco, surf_cox5a_c;
+color cinco, surf_cox5a_nc;
+color tres, surf_cox5B_c;
+color tres, surf_cox5B_nc;
+color tres, surf_cox6A2_c;
+color tres, surf_cox6A2_nc;
+color cuatro, surf_cox6B1_c;
+color cuatro, surf_cox6B1_nc;
+color dos, surf_cox6C_c;
+color dos, surf_cox6C_nc;
+color dos, surf_cox7A1_c;
+color dos, surf_cox7A1_nc;
+color tres, surf_cox7B_c;
+color tres, surf_cox7B_nc;
+color cuatro, surf_cox7C_c;
+color cuatro, surf_cox7C_nc;
+color uno, surf_cox8B_c;
+color uno, surf_cox8B_nc;

@@ -1,0 +1,233 @@
+% Activate the following line by filling in the right side. If for example the name of the root file is Main.tex, write
+% "...root = Main.tex" if the chapter file is in the same directory, and "...root = ../Main.tex" if the chapter is in a subdirectory.
+
+%!TEX root =  ../../Tesis.tex
+\chapter{Mecom (\textit{Molecular Evolution of protein COMplexes})}\label{anex:Mecom}
+
+\section{Introducción}
+
+Una de las virtudes de la biología computacional es la alta reproducibilidad. Esto significa que no importa cuántas veces se repita un mismo ensayo que, bajo los mismos parámetros, se obtendrán siempre los mismos resultados. Así pues, se puede considerar que muestras distintas, sometidas a un mismo tratamiento computacional, darán resultados comparables entre si, con un error experimental infinitésimo. No obstante, este hecho no es tan evidente desde un punto de vista práctico. En numerosas ocasiones, el investigador se enfrenta a cuestiones cuya solución se halla tras un desarrollo de software de una complejidad considerable, y es en este proceso donde el error experimental puede tomar protagonismo. El motivo es obvio, cuanto más complejo es un modelo computacional, mayor es la probabilidad de que existan errores en algún punto, pudiendo pasar desapercibidos e introduciendo artefactos en los resultados.
+
+\label{intro:desarrollo}Siendo conscientes entonces, de la relación positiva entre complejidad y vulnerabilidad de un modelo computacional, no es en vano la inversión de un esfuerzo adicional para tratar de aumentar, cuanto más mejor, la robustez del software desarrollado. Para ello, es buena práctica incluir dicho software en un proceso de desarrollo colaborativo, en el cual, según afirma en su libro, \emph{The Cathedral and the Bazaar} \cite*{citeulike:7179672}, el informático americano y defensor a ultranza del movimiento \emph{Open Source}, Eric Raymond, casi todos los errores serán caracterizados y arreglados rápidamente, siempre que exista un numero elevado de co-desarrolladores y \emph{beta-testers}\interfootnotelinepenalty=10000\footnote{Literalmente: <<\emph{Given a large enough beta-tester and co-developer base, almost every problem will be characterized quickly and the fix will be obvious to someone}>>.} implicados.
+
+De acuerdo con estas prácticas, el software que ha sido desarrollado para llevar a cabo los análisis explicados en el capítulo \ref{cap:contact} (página \pageref{apartado:modeloMecom}), ha sido publicado en repositorios públicos (véase sección \ref{sec:Distrb}) bajo una licencia GNU GPL (\emph{General Public License}) que permite el uso, la difusión y la modificación parcial o total del código, con el ánimo de hacerlo llegar a cualquier persona interesada en los objetivos que persigue el programa. Además, se ha hecho uso de un popular sistema de control de versiones (\texttt{Git}) que facilita el mencionado desarrollo colaborativo (véase sección \ref{sec:Desarrollo}).
+
+Así pues, Mecom, como hemos llamado al programa desarrollado en esta tesis como acrónimo de \emph{Molecular Evolution of protein COMplexes}, y disponible en \url{http://mecom.hval.es/}, es un software de código abierto y de libre distribución destinado al análisis estructural y evolutivo de complejos protéicos. Mecom ha sido usado en este trabajo de investigación y su proyecto futuro incluye mejoras en su versatilidad y robustez y la aplicación en trabajos distintos enmarcados en la evolución molecular computacional. En este apéndice se describen los detalles técnicos del programa en su versión actual (v1.15), así como las plataformas sobre las que se desarrolla y distribuye, con el fin de proveer de la información suficiente a todo aquel que desee colaborar en este proyecto de software libre.
+
+\section{Implementación}
+
+Tal y como se explica de forma sucinta en el capítulo \ref{cap:contact} (página \pageref{apartado:modeloMecom}), Mecom implementa una serie de análisis consecutivos sobre la estructura de un complejo protéico y su evolución. Para ello, incluye algoritmos destinados al manejo de modelos atómicos (archivos \texttt{*.pdb}) y alineamientos múltiples de secuencias.
+
+Mecom es la integración en un solo programa de un conjunto de scripts escritos en Perl y de otros dos programas (DSSP y PAML). Está construido de forma modular, es decir, el programa se divide en módulos que realizan funciones aisladas. En la tabla \ref{TablaModulosMecom} se resume la información correspondiente a cada uno de los módulos implementados en Mecom.
+
+Los módulos pertenecientes a Mecom integran numerosas dependencias de otros módulos programados por terceros, disponibles en el repositorio público destinado a Perl por excelencia, \texttt{CPAN} (\emph{Comprehensive Perl Archive Network}, \url{http://www.cpan.org/}). En los siguientes apartados se explica el funcionamiento de cada módulo (tabla \ref{TablaModulosMecom}), en orden de ejecución.
+
+\subsection{Módulo \texttt{Mecom::Contact}}\label{Mecom:Contact}
+
+El módulo \texttt{Mecom::Contact} es el que realiza los cálculos que más tiempo consumen, por lo que, posiblemente, sea el módulo más susceptible a ser mejorado con el objetivo de aumentar la eficiencia del programa en su conjunto. Éste toma como datos de entrada el modelo atómico del complejo y calcula todas las distancias de todos los pares de grupos atómicos posibles. Posteriormente, toma la distancia más corta entre cada par de residuos pertenecientes a subunidades distintas del mismo complejo, y devuelve una lista de pares de residuos junto con la distancia computada. Por último, cada par de residuos se identifica como en contacto o no dependiendo de si el valor de proximidad es menor o mayor a un umbral preestablecido (por defecto 4\AA).
+
+La mejora más importante que necesita este módulo es la optimización del cálculo de la matriz de distancias.
+
+\subsection{Módulo \texttt{Mecom::Surface}}\label{Mecom:Surface}
+
+Este módulo toma como dato de entrada el archivo \texttt{.*pdb} que contiene el modelo atómico del complejo, al igual que el módulo \texttt{Mecom::Contact}, y realiza una llamada al sistema que consiste en el lanzamiento del programa DSSP. Posteriormente, recoge los datos de salida de DSSP entre los que se encuentran los valores de las superficies, en angstroms, de cada residuo de cada cadena del complejo. Por último, calcula el porcentaje de superficie expuesta de cada residuo tomando como 100\% el valor en angstroms de la superficie del aminoácido incluido en un triplete GXG totalmente extendido ($\Phi$= -120º, $\Psi$=140º), siendo X el aminoácido en cuestión y G glicina. Posteriormente, clasifica los residuos como expuestos o enterrados según si sus correspondientes valores de \%ASA superan o no un umbral determinado por el usuario, que por defecto está configurado en 5\%. Los valores de superficie máxima de cada aminoácido se tomaron de Lee y Richards \cite*{Lee:1971dg}, y se muestran en la tabla \ref{TablaASAmax}.
+
+Finalmente, el módulo \texttt{Mecom::Surface}, integra en un solo archivo de texto los datos procedentes de la fase de clasificación en residuos en contacto o libres y los de clasificación en expuestos o enterrados. Éste archivo puede ser usado, opcionalmente, como datos de entrada de Mecom, de esta forma, la ejecución del programa puede saltarse los pesados cálculos estructurales.
+
+% Tabla Módulos
+\begin{sidewaystable}
+\begin{center}
+\begin{threeparttable}
+	\caption{\label{TablaModulosMecom} \small{Módulos de Perl implementados en Mecom.}}
+	\begin{tabular}{c m{6cm} c}
+	\toprule
+	\textbf{Módulo} & \textbf{Función} & \textbf{Archivo} \\
+	\midrule
+	\texttt{Mecom::Contact} & Calcula las distancias entre residuos y determina si están en contacto o no basado en un umbral preestablecido. & \texttt{lib/Mecom/Contact.pm} \\
+	\midrule
+	\texttt{Mecom::Surface} & Implementa el programa DSSP para el cálculo de superficies (\%ASA). & \texttt{lib/Mecom/Surface.pm} \\
+	\midrule
+	\texttt{Mecom::Subsets} & Construye los conjuntos de posiciones en base a los resultados de los análisis de la estructura. & \texttt{lib/Mecom/Subsets.pm} \\
+	\midrule
+	\texttt{Mecom::Align::Subset} & Divide un alineamiento en varios \emph{subalineamientos} a partir de conjuntos de posiciones. & \texttt{lib/Mecom/Align/Subset.pm} \\
+	\midrule
+	\texttt{Mecom::EasyYang} & Integra el programa PAML para los análisis evolutivos (${\Sigma}d_N$). & \texttt{lib/Mecom/EasyYang.pm} .\\
+	\midrule
+	\texttt{Mecom::Statistics::RatioVariance} & Calcula la varianza de un cociente y realiza una prueba Z para evaluar la significatividad de los resultados. & \texttt{lib/Mecom/Align/Subset.pm} \\
+	\midrule
+	\texttt{Mecom::Report} & Construye un informe en HTML con los resultados de los análisis. & \texttt{lib/Mecom/Report.pm} \\
+	\bottomrule
+	\end{tabular}
+\begin{tablenotes}
+\item{\small{}}% Pie de tabla
+\end{tablenotes}
+\end{threeparttable}
+\end{center}
+\end{sidewaystable}
+% End Tabla Módulos
+
+% Tabla ASA
+\begin{table}[!hbt]
+\begin{center}
+\begin{threeparttable}
+	\caption{\label{TablaASAmax} \small{Superficie máxima de cada aminoácido \protect\cite{Lee:1971dg}.}}
+	\begin{tabular}{c c | c c}
+	\toprule
+	\textbf{Residuo} & \textbf{Superficie (\AA)} & \textbf{Residuo} & \textbf{Superficie (\AA)} \\
+	\midrule
+A & 113 & L & 180 \\
+R & 241 & K & 211 \\
+N & 158 & M & 204 \\
+D & 151 & F & 218 \\
+C & 140 & P & 143 \\
+Q & 189 & S & 122 \\
+E & 183 & T & 146 \\
+G & 85 & W & 259 \\
+H & 194 & Y & 229 \\
+I & 182 & V & 160 \\
+	\bottomrule
+	\end{tabular}
+\begin{tablenotes}
+\item{\small{}}% Pie de tabla
+\end{tablenotes}
+\end{threeparttable}
+\end{center}
+\end{table}
+% End Tabla ASA
+
+\subsection{Módulo \texttt{Mecom::Subsets}}\label{Mecom:Subsets}
+
+Los dos módulos explicados hasta ahora, \texttt{Mecom::Contact} y \texttt{Mecom::Surface}, son los únicos encargados de realizar análisis sobre el modelo estructural del complejo proteico. La información necesaria para clasificar los residuos, según los criterios de proximidad a otros residuos y exposición al solvente, queda registrada tras la ejecución de éstos. El módulo \texttt{Mecom::Subsets} es el encargado de generar los conjuntos de cada uno de los grupos de residuos posibles tras la combinación de los dos criterios de clasificación (contacto y exposición). Estos conjuntos son trasladados al siguiente módulo, dando paso a la fase del algoritmo encargada de la manipulación y análisis de secuencias alineadas.
+
+\subsection{Módulo \texttt{Mecom::Align::Subset}}\label{Mecom:Align:Subset}
+
+A partir de un alineamiento múltiple de secuencias nucleotídicas, el módulo \texttt{Mecom:: Align::Subset}, reagrupa los tripletes y genera varios alineamientos nuevos que contienen los nucleótidos que codifican para los residuos agrupados en cada uno de los subconjuntos obtenidos en la ejecución del módulo anterior. En otras palabras, este módulo es el que fragmenta el alineamiento en otros alineamientos que codifican para regiones determinadas de la proteína.
+
+Hace uso de los módulos de \texttt{BioPerl} (véase sección \ref{sec:dependencias}) encargados del manejo de alineamientos múltiples y entrada y salida de datos.
+
+Éste, al igual que el módulo \texttt{Mecom::Contact}, es un buen punto para situar el foco en los procesos de mejora del software, pero por distintas razones. Actualmente, el código implementado en este módulo es eficiente, sin embargo, dada la naturaleza de los datos de entrada, es indispensable incrementar su robustez, debido a que los alineamientos múltiples pueden ser muy diversos atendiendo a varios aspectos como la disparidad en las longitudes de las secuencias, el número y la distribución de \emph{gaps} y las ambigüedades en los nucleótidos. Otro motivo es referente a la siguiente fase de la ejecución de Mecom, que incluye la ejecución de PAML, el cual es muy astringente en cuanto a la integridad de los alineamientos que computa, es decir, que cualquier error en las secuencias, impedirá la ejecución y detendrá Mecom. Así, este módulo podría integrar, en próximas fases de su desarrollo, un algoritmo de validación y depuración de alineamientos para evitar la detención de la ejecución.
+
+\subsection{Módulo \texttt{Mecom::EasyYang}}\label{Mecom:EasyYang}
+
+El módulo \texttt{Mecom::EasyYang} es lo que en programación se denomina un \textit{wrapper}. Esto es, un fragmento de código que maneja la entrada y salida de otro programa instalado en el sistema. Éste, es el encargado de ejecutar PAML, concretamente el programa \texttt{yn00}, que realiza los cálculos de las tasas de sustituciones entre cada par de secuencias de un alineamiento de entrada. Posteriormente, suma todos los valores de $d_N$ obtenidos y obtiene el valor de ${\Sigma}d_N$ (véase capítulo \ref{cap:contact}, ecuación \ref{ecsdn}) para dicho alineamiento. El módulo procede de igual forma para cada alineamiento y devuelve los valores de ${\Sigma}d_N$ de cada uno junto con sus respectivas varianzas.
+
+\subsection{Módulo \texttt{Mecom::Statistics::RatioVariance}}\label{Mecom:Statistics:RatioVariance}
+
+Una vez que se han obtenido los valores de ${\Sigma}d_N$ y varianzas de todos los alineamientos de todas las regiones de la proteína, acotadas según los criterios estructurales, se procede a calcular las tasas de interacción $R_{x,y}$ (véase capítulo \ref{cap:contact}, ecuación \ref{ec3.1}) y sus varianzas. Dada la ecuación \ref{ec:R2}, 
+% Ecuación Varianza Ratio
+\begin{equation}
+\label{ec:R2}
+R_{x,y} = \frac{\bar{x}}{\bar{y}}
+\end{equation}
+% Fin Ecuación Varianza Ratio
+para calcular las varianzas de $R_{x,y}$, se empleó la ecuación \ref{ec:ratiovariance},
+% Ecuación Varianza Ratio
+\begin{equation}
+\label{ec:ratiovariance}
+Var(R_{x,y}) = \frac{1}{\bar{y}^2}[{\sigma}_{x}^2 + R_{x,y}^2 + {\sigma}_{y}^2 - 2R_{x,y}{\rho}_{x,y}{\sigma}_x{\sigma}_y]
+\end{equation}
+% Fin Ecuación Varianza Ratio
+donde $\bar{y}$ es la media de $y$, ${\sigma}_{x}$ y ${\sigma}_{y}$ son las desviaciones típicas de $x$ e $y$, respectivamente, y ${\rho}_{x,y}$ es el coeficiente de correlación entre $x$ e $y$.
+
+Dado que, en el trabajo de investigación para el que se desarrolló este programa, las condiciones de hipótesis nula asumían que $R_{x,y}$ no es distinto de la unidad, se implementó en este mismo módulo una prueba Z como método de contraste que permitiera averiguar si las desviaciones de los valores de $R_{x,y}$ con respecto a 1 eran significativas.
+
+\subsection{Módulo \texttt{Mecom::Report}}\label{Mecom:Report}
+
+El último módulo que se ejecuta es el encargado de escribir un reporte en HTML que contiene toda la información de la ejecución, tanto los resultados de salida, como los parámetros y archivos de entrada.
+
+\subsection{Módulos \texttt{Mecom} y \texttt{Mecom::Config}}\label{Mecom:otros}
+
+Mecom contiene otros dos módulos que no han sido enumerados en la tabla \ref{TablaModulosMecom} debido a que no están incluidos en ninguna fase de la secuencia de análisis. El primero, \texttt{Mecom} (de igual nombre que el programa), es el que integra el resto de los módulos, los ejecuta en el orden correcto, gestiona toda la memoria donde se almacena la información, y la transmite de un módulo a otro. El segundo, \texttt{Mecom::Config}, contiene información referente a la instalación del programa.
+
+\section{Dependencias}\label{sec:dependencias}
+
+Además de los programas DSSP y PAML, y los módulos integrados en el programa, Mecom integra otros módulos de terceros como dependencias. Muchas de estas dependencias están integradas en el paquete \texttt{BioPerl} (\url{http://www.bioperl.org/}) que consiste en un conjunto de módulos de Perl destinados al análisis de datos biológicos, como secuencias, alineamientos, estructuras, etc. Otras, pertenecen a la familia de módulos denominada \texttt{Statistics}, que implementan diversas herramientas estadísticas como el cálculo del coeficiente de correlación o la prueba Z.
+
+Todos los elementos que componen Mecom, descritos hasta ahora, constituyen el denominado árbol de dependencias (figura \ref{FigDependencias}). Éstas deben estar instaladas correctamente en el sistema para que el programa funcione. La primera que debe ser instalada es el intérprete de Perl, que es el motor que ejecuta Mecom. En la web dedicada al programa, se puede encontrar información sobre las versiones de Perl disponibles y otros requisitos según el sistema operativo (\url{http://mecom.hval.es/install#req}).
+
+%Begin Figura dependencias
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.7\textwidth]{Apendices/MECOM/Figuras/Dependencias.pdf}
+\end{center}
+\caption{Esquema conceptual de las dependencias de MECOM.}\label{FigDependencias}
+\end{figure}
+%End Figura dependencias
+
+\section{Distribución e Instalación}\label{sec:Distrb}
+
+Una de las grandes ventajas del código abierto (\textit{open source}) es la posibilidad de reutilizar código, es decir, incluir en el software en construcción, fragmentos de código que han sido desarrollados previamente para cumplir determinadas funciones, por ejemplo, entrada y salida de datos, manejo de ficheros, herramientas matemáticas, etc. Por este motivo, la programación modular, típica de Perl, es una buena práctica orientada a compartir el código, siendo los módulos las unidades independientes y transferibles. Sin embargo, de cara al usuario, la instalación de todo el árbol de dependencias puede ser tediosa, y se requieren herramientas que asistan la integración correcta de todos los elementos en el sistema operativo. Para solucionar este problema, en el caso de los programas desarrollados en Perl, entra en juego un conjunto de módulos denominado CPAN. Brevemente, CPAN es un intérprete de comandos (consola) que se conecta a través de una conexión a internet al repositorio del mismo nombre, descarga todo el árbol de dependencias del programa solicitado, y lo instala en el sistema. Adicionalmente, integra otras tareas como las de compilación, gestión de manuales, etc., en los casos que fuera necesario. Mecom ha sido distribuido a través del repositorio CPAN, por lo que éste es accesible desde la consola de CPAN.
+
+\subsection{Instalación mediante \texttt{CPAN}}
+
+Instalar Mecom a través del sistema CPAN es el método recomendado por los autores debido a que, como se ha expuesto en el apartado anterior, se hace uso de un asistente responsable de descargar e instalar correctamente todo el árbol de dependencias. Para comenzar el proceso, es necesario tener instalado Perl y CPAN en el sistema. Con esto, la simple instrucción:
+% Código instalación
+\begin{code}
+> perl -MCPAN -e 'force install Mecom'
+\end{code}
+% fin código
+descargará e instalará Mecom, incluyendo todas las dependencias, DSSP y PAML. Este último es también compilado por el mismo CPAN. 
+
+En la url \url{http://mecom.hval.es/install} se puede encontrar más información sobre la instalación.
+
+\section{Ejemplo de uso}
+
+Antes de comenzar a usar Mecom, es recomendable revisar el manual de usuario disponible en la web (\url{http://mecom.hval.es/manual}) o en el mismo intérprete de comandos. Si el programa está instalado correctamente, la instrucción
+\begin{code}
+> man mecom
+\end{code}
+debe mostrar en pantalla un manual del programa. Del mismo modo, la instrucción
+\begin{code}
+> man --help
+\end{code}
+muestra un resumen de los parámetros requeridos y opcionales.
+
+El ejemplo más simple de uso de Mecom sería como sigue:
+\begin{code}
+> mecom --pdb 2occ.pdb --chain M --alignment ChainM_alignment.fas
+\end{code}
+Esta instrucción está compuesta por el nombre del programa seguido de tres duplas. Cada una de éstas constituye un par ``clave, valor'', donde la clave (precedida de dos guiones) es el nombre del parámetro que se desea declarar, y el valor es el contenido que se le desea asignar a dicho parámetro. Así, en el ejemplo, el primer parámetro, denominado \texttt{--pdb}, admite como valor la ruta al archivo que contiene el modelo atómico. El segundo, \texttt{--chain}, es el identificador de la subunidad para la que se desea realizar los cálculos y \texttt{--alignment} es la ruta al archivo que contiene los alineamientos.
+
+Todos los resultados de la ejecución, se resumen en un archivo HTML que se escribe en la ubicación donde se ejecuta el programa. En él, se detallan los parámetros de entrada que se han utilizado, las rutas a los archivos donde se han almacenado los nuevos alineamientos, la información estructural y la evolutiva. Por último, muestra una tabla con los valores obtenidos de ${\Sigma}d_N$ y $R$ de cada conjunto de residuos.
+
+Más allá de este ejemplo, Mecom es altamente configurable, de modo que mediante el sistema ``clave, valor'' en las instrucciones de línea de comando, pueden modificarse todos los parámetros de la ejecución. Todos ellos se muestran en la tabla \ref{tablaParamMecom}. En el manual disponible en la web se ofrece una descripción más detallada de cada parámetro así como los valores por defecto de cada uno de ellos.
+
+%Tabla parametros
+\begin{table}[!hbt]
+\begin{center}
+\begin{threeparttable}
+	\caption{\label{tablaParamMecom} \small{Parámetros admitidos por Mecom en la línea de comandos.}}
+	\begin{tabular}{l m{9cm}}
+	\toprule
+	\textbf{Parámetro} & \textbf{Descripción} \\
+	\midrule
+	\texttt{--help} & Muestra un documento de ayuda.  \\
+	\texttt{--pdb}\textdagger & Ruta al archivo \texttt{*.pdb}.  \\
+	\texttt{--contactfile}$^\S$ & Ruta al archivo de contactos\footnote{Archivo que contiene la información estructural de una ejecución previa sobre la misma cadena.}.  \\
+	\texttt{--alignment}* & Alineamientos correspondents a la secuencia nucleotídica de la cadena especificada. \\
+	\texttt{--chain}* & Cadena que se desea analizar.   \\
+	\texttt{--ocontact} & Archivo donde se almacenarán los resultados de los análisis estructurales de la ejecución.   \\
+	\texttt{--exposureth} & Umbral de exposición para determinar si el residuo está expuesto o enterrado.  \\
+	\texttt{--exposuretherror}  &  Margen de error del umbral de exposición. \\
+	\texttt{--proximityth} &  Umbral de proximidad para determinar si un par de residuos está o no en contacto.\\
+	\texttt{--informat} &  Formato de entrada del archivo de alineamientos. \\
+	\texttt{--oformat} &  Formato de salida de los alineamientos parciales. \\
+	\texttt{--gc} &  Código genético. \\
+	\texttt{--report} &  Archivo donde se escribirá el reporte HTML.\\
+	\texttt{--struct} &  Ejecuta sólo los análisis estructurales. \\
+	\bottomrule
+	\end{tabular}
+\begin{tablenotes}
+\item{\small{* Este parámetro es requerido para toda ejecución}}% Pie de tabla
+\item{\small{{\textdagger} Este parámetro es requerido sólo en ausencia de \texttt{--contactfile}}}% Pie de tabla
+\item{\small{{\S} Este parámetro es requerido sólo en ausencia de \texttt{--pdb}}}% Pie de tabla
+\end{tablenotes}
+\end{threeparttable}
+\end{center}
+\end{table}
+%End tabla parámetros
+
+\section{Desarrollo colaborativo}\label{sec:Desarrollo}
+
+Como se ha señalado en la introducción (página \pageref{intro:desarrollo}), creemos que es necesario incluir este programa en un proyecto de desarrollo colaborativo. Para tal fin, hemos depositado todo el código fuente en una red de programadores denominada \textit{Github} (\url{https://github.com/}). Esta plataforma, sumada al sistema de control de versiones \texttt{Git}, permite llevar a cabo este proceso de forma eficiente y cómoda. En la url \url{https://github.com/hvpareja/Mecom}, se encuentra el repositorio donde se ha depositado el código fuente, así como un foro interno en el que se discuten los distintos aspectos del desarrollo.
+

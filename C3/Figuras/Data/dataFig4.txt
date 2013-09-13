@@ -1,0 +1,3 @@
+Title	A	B	C
+"Contacto"	4091.102	5447.657	5966.991
+"No contacto expuesto"	2900.31	10605.494	8404.553

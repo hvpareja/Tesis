@@ -1,0 +1,299 @@
+\documentclass[11pt,spanish,twoside,openright]{book}
+
+%% PDF/X-3:2002 info
+%% Replace the title, author, etc. information accordingly to your book.
+%% The \pageattr values have to be in pt, compare with the page size settings above.
+
+\pdfobjcompresslevel=0%
+\pdfminorversion=3%
+\pdfinfo{
+  /Title (Caracterización de las fuerzas evolutivas que afectan a las proteínas codificadas por el genoma mitocondrial)
+  /Author (Héctor Valverde Pareja)
+  /Subject (Tesis Doctoral)
+  /GTS_PDFXVersion (PDF/X-3:2002)
+}%
+ 
+\pdfcatalog{
+  /PageMode /UseNone
+  /OutputIntents [ <<
+    /Info (none)
+    /Type /OutputIntent
+    /S /GTS_PDFX
+    /OutputConditionIdentifier (Blurb.com)
+    /RegistryName (http://www.color.org/)
+  >> ]
+}%
+
+%%%%%
+
+
+\usepackage[english, spanish, es-tabla]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{floatrow}
+\usepackage{Bib/astron}
+\usepackage{float}
+\restylefloat{table}
+
+% --------------- Geometría ----------------%
+\usepackage[paperwidth=210mm, paperheight=297mm]{geometry}
+%\usepackage{geometry}   
+%\geometry{letterpaper}
+% ------------  Fin Geometría -------------%
+
+ 
+\usepackage[parfill]{parskip}  
+\usepackage{graphicx, subfigure}
+\usepackage{amssymb}
+\usepackage{threeparttable}
+\usepackage{sidecap}
+\providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
+\hyphenation{mtDNA}
+\usepackage[titletoc]{appendix}
+% Cabecera y pie de pagina
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\leftmark} 
+\fancyhead[RO]{\rightmark} 
+\fancyfoot[LE]{\thepage}
+\fancyfoot[RO]{\thepage}
+% Modifica el ancho de las líneas de cabecera y pie 
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\chaptermark}[1]{\markboth{\textbf{\thechapter. #1}}{}} % Formato para el capítulo: N. Nombre
+\renewcommand{\sectionmark}[1]{\markright{\textbf{\thesection. #1}}} % Formato para la sección: N.M. Nombre
+% Fin de Cabecera y pie de página
+
+%\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\usepackage[colorlinks=false, pdfstartview=FitV, linkcolor=blue, 
+            citecolor=blue, urlcolor=blue]{hyperref}
+%Para una versión web, descomentar estas líneas para colorear los vínculos
+%\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, 
+%            citecolor=blue, urlcolor=blue]{hyperref}
+
+\usepackage{multirow}
+% Introducir el subtítulo como nuevo comando
+\usepackage{titling}
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip1.5em}%
+}
+
+
+%\newtheorem{theorem}{Theorem}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{definition}{Definition}
+%\newtheorem{lemma}{Lemma}
+%\newtheorem{exercise}{Exercise}
+%\newtheorem{remark}{Remark}
+%\newtheorem{example}{Example}
+%\newtheorem{warning}{Warning}
+
+%\def\grad{ \mbox{grad}}
+%\def\curl{ \mbox{curl}}
+%\def\div{ \mbox{div}}
+%\def\U{\ensuremath {\cal U}}
+%\def\S{\ensuremath {\cal S}}
+%\def\V{\ensuremath {\cal V}}
+%\def\R{\ensuremath {\cal R}}
+%\def\tr{\ensuremath {\mbox{tr}}}
+
+% Sangría primera línea de los párrafos
+\setlength{\parindent}{20pt}
+
+%%%%%%%% Para que aparezca la palabra figura en negrita en el pie de la figura %%%%%%%
+\makeatletter
+\renewcommand{\fnum@figure}[1]{\textbf{\figurename~\thefigure}:\small}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% Para que aparezca la palabra tabla en negrita en el pie de la tabla %%%%%%%
+\makeatletter
+\renewcommand{\fnum@table}[1]{\textbf{\tablename~\thetable}:\small}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\floatsetup[table]{capposition=top}
+\usepackage{layout}
+\usepackage{datetime}
+\usepackage{booktabs,multirow}
+\usepackage{array}% http://ctan.org/pkg/array
+\usepackage{colortbl}
+
+\usepackage{marginnote}
+\usepackage{rotating}
+
+% Para introducir archivos pdf
+\usepackage{pdfpages}
+
+% Tablas largas
+\usepackage{longtable}
+
+% Para usar más de una columna
+\usepackage{supertabular} 
+
+% Para páginas apaisadas
+\usepackage{lscape}
+
+% Para código
+\usepackage{fancyvrb}
+\DefineVerbatimEnvironment{code}{Verbatim}{fontsize=\small}
+\DefineVerbatimEnvironment{example}{Verbatim}{fontsize=\small}
+\usepackage{listings}
+\lstset{language=bash}
+
+% Para reacciones químicas
+\usepackage{amssymb, amsmath, amsbsy}
+
+
+% Palabras que no permito que se partan
+\hyphenation{nDNA}
+\hyphenation{mtDNA}
+\hyphenation{cDNA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FIN DE PREÁMBULOS DE LATEX %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% ------------------- Title and Author (Metadata) ------------------------------%
+%
+\title{
+Caracterización de las fuerzas evolutivas que afectan a las proteínas codificadas por el genoma mitocondrial
+}
+\subtitle{\vspace{2cm}Tesis Doctoral}
+\author{Héctor Valverde Pareja}
+% ---------------------------- Fin MetaData ---------------------------------------%
+
+\begin{document}
+\selectlanguage{spanish}
+% Geometría (Debugging)
+%\layout % Descomentar esta línea para ver la geometría del documento
+
+% Portada
+\pagestyle{empty}
+\input{Prolegomenos/Portada}
+
+% Dedicatoria
+\cleardoublepage
+\newgeometry{top=35em}
+{
+\raggedleft
+\textit{A mis padres.}\\
+\textit{A mis hermanos.}\\
+}
+\restoregeometry
+
+% ------------------------------ Front Matter (Prolegómenos) -------------------%
+\frontmatter
+
+% Certificado de tutela
+\cleardoublepage
+\include{Prolegomenos/Certificado}
+
+% Mención al proyecto y financiación
+\cleardoublepage
+\include{Prolegomenos/Proyecto}
+
+% Índice
+\cleardoublepage
+\tableofcontents
+
+% Índices de figuras y tablas
+%\cleardoublepage
+%\listoffigures 
+%\addcontentsline{toc}{section}{Índice de figuras} 
+%\listoftables 
+%\addcontentsline{toc}{section}{Índice de tablas}
+%\restoregeometry
+
+% Agradecimientos
+\cleardoublepage
+\include{Prolegomenos/Agradecimientos}
+
+% Prólogo
+\cleardoublepage
+\include{Prolegomenos/Prologo}
+
+% ----------  Cuerpo de Tesis Doctoral -------------------%
+% --------- Los tres trabajos de investigación ----------%
+\mainmatter
+
+\pagestyle{fancy}
+
+% Introducción
+\include{Introd/Introd}
+
+% Capítulo 1
+\include{C1/C1}
+
+% Capítulo 2
+\include{C2/C2}
+
+% Capítulo 3
+\include{C3/C3}
+
+% --------------------- Apéndices -------------------%
+
+\appendix
+% Anexo de Mecom
+\include{Apendices/MECOM/Mecom}
+
+% Anexo de Modelos de Capítulo 1
+\include{Apendices/Modelos/Modelos}
+
+% Anexo de Methionine en nDNA
+\include{Apendices/nDNA/ndna}
+
+% Anexo de Pairwise
+\include{Apendices/Pairwise/Pairwise}
+
+% Anexo de Artículos
+\pagestyle{empty}
+\chapter{Publicaciones}
+\cleardoublepage
+\newgeometry{top=35em, left=28em}
+	\section{Publicación del capítulo 1}
+		\cleardoublepage
+		\includepdf[pages={1-10}]{Apendices/Publicaciones/Met/MutationalBias.pdf}
+		\cleardoublepage
+	\section{Publicación del capítulo 2}
+		\cleardoublepage
+		\includepdf[pages={1-12}]{Apendices/Publicaciones/SurfBur/articulo1.pdf}
+		\cleardoublepage
+	\section[Publicación del capítulo 3]{Publicación del capítulo 3 (Bajo revisión)}
+		\cleardoublepage
+		\restoregeometry
+		\pagestyle{fancy}
+		\selectlanguage{english}
+		\include{Apendices/Publicaciones/Contact/proof}
+		\selectlanguage{spanish}
+		%\includepdf[pages={1-36}]{Apendices/Publicaciones/Contact/ms_proof.pdf}
+\restoregeometry
+
+% Anexo de Datos
+\include{Apendices/Datos/Datos}
+
+% ------------------ Fin de Apéndices -----------------%
+
+% --------- Bibliografía (Back Matter) ----------%
+\backmatter
+\pagestyle{fancy}
+% Bibliografía
+\bibliographystyle{apa}
+\chapter*{}
+\bibliography{Bib/Bib1}\addcontentsline{toc}{chapter}{Bibliografía}
+
+% --------------- Bibliografía  ------------------------%
+
+
+\end{document}
+\end
+
